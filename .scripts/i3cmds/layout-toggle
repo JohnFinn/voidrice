@@ -1,0 +1,6 @@
+#!/bin/bash
+current_layout=$(get_layout)
+case $(setxkbmap -query | awk '/^layout:/ {print $2}') in
+	us) setxkbmap ru;;
+	ru) setxkbmap us;;
+esac

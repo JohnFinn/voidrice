@@ -62,7 +62,7 @@ bindsym $mod+Return 		exec $term
 bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+Shift+space 	floating toggle
-bindsym $mod+space		focus mode_toggle
+bindsym $mod+space		exec layout-toggle ; exec pkill -RTMIN+13 i3blocks;
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
@@ -349,8 +349,8 @@ bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Finance		exec
 ##bindsym XF86Game		exec
 bindsym XF86Shop		exec $BROWSER https://ebay.com
-bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
-bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86MonBrightnessDown	exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp	exec --no-startup-id light -A 10
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
 #bindsym XF86KbdLightOnOff	exec
@@ -363,3 +363,4 @@ bindsym XF86Documents		exec $term -e $FILE ~/Documents
 ##bindsym XF86Battery		exec
 ##bindsym XF86Bluetooth		exec
 bindsym XF86WLAN		exec $netrefresh
+exec_always --no-startup-id notify-send -i ~/.scripts/pix/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000

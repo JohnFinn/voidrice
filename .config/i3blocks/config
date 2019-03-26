@@ -66,5 +66,10 @@ interval=30
 [internet]
 interval=10
 
+[layout-getflag]
+interval=once
+signal=13
+
 [help]
 interval=once
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+case $(setxkbmap -query | awk '/^layout:/ {print $2}') in
+	ru) echo 🇷🇺;;
+	us) echo 🇬🇧;;
+esac
