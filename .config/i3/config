@@ -131,17 +131,17 @@ bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "<b>Dis
 bindsym $mod+g			workspace prev
 bindsym $mod+Shift+g		exec --no-startup-id gimp; workspace $ws5
 
-bindsym $mod+h			focus left
-bindsym $mod+Shift+h		move left 30
+# jkl; focus
+bindsym $mod+j			focus left
+bindsym $mod+k			focus down
+bindsym $mod+l			focus up
+bindsym $mod+semicolon		focus right
 
-bindsym $mod+j			focus down
-bindsym $mod+Shift+j		move down 30
-
-bindsym $mod+k			focus up
-bindsym $mod+Shift+k		move up 30
-
-bindsym $mod+l			focus right
-bindsym $mod+Shift+l		move right 30
+# jkl; move
+bindsym $mod+Shift+j		move left
+bindsym $mod+Shift+k		move down
+bindsym $mod+Shift+l		move up
+bindsym $mod+Shift+semicolon	move right
 
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
@@ -178,7 +178,6 @@ bindsym $mod+XF86Back		workspace prev
 bindsym $mod+Shift+XF86Back	move container to workspace prev
 bindsym $mod+XF86Forward	workspace next
 bindsym $mod+Shift+XF86Forward	move container to workspace next
-bindsym $mod+semicolon		workspace next
 bindsym $mod+apostrophe		split horizontal ;; exec $term
 bindsym $mod+slash		split vertical ;; exec $term
 bindsym $mod+Shift+slash	kill
