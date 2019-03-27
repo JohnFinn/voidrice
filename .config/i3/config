@@ -50,11 +50,20 @@ exec_always --no-startup-id mpdupdate
 exec_always --no-startup-id podentr
 
 bar {
-	font pango:mono 10
+	font pango:mono 12
 	status_command i3blocks
 	position top
 	mode dock
 	modifier None
+	separator_symbol " "
+	colors {
+		background #272727
+		#statusline #ff0000
+		#		   border background text
+		focused_workspace  #4c79b5 #4c79b5 #ffffff
+		active_workspace   #4cb553 #4cb553 #ffffff
+		inactive_workspace #272727 #272727 #aaaaaa
+	}
 }
 
 # #---Basic Bindings---# #
