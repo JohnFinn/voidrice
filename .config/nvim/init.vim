@@ -25,6 +25,12 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 
+" more convenient keys
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
 " Some basics:
 	nnoremap c "_c
 	set nocompatible
