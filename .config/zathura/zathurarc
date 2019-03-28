@@ -6,7 +6,13 @@ map d scroll half-down
 map D toggle_page_mode
 map r reload
 map R rotate
-map K zoom in
-map J zoom out
+map L zoom in
+map K zoom out
 map i recolor
 map p print
+
+# remap vim navigation keys to jkl;
+map j scroll left
+map k scroll down
+map l scroll up
+map ; scroll right
