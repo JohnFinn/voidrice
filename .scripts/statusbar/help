@@ -6,4 +6,4 @@ case $BLOCK_BUTTON in
 - Left click to open LARBS guide.";;
 esac
 
-echo "❓"
+echo "❔"
