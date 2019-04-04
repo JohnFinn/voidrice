@@ -4,7 +4,6 @@ cfb	~/.bashrc
 cfa	~/.config/aliasrc
 cfz	~/.zshrc
 cfv	~/.config/nvim/init.vim
-cfr	~/.config/ranger/rc.conf
 cfi	~/.config/i3/config
 cfm	~/.config/mutt/muttrc
 eb	~/Documents/LaTeX/uni.bib
@@ -15,3 +14,4 @@ cfn	~/.config/newsboat/config
 cfmb	~/.config/ncmpcpp/bindings
 cfmc	~/.config/ncmpcpp/config
 er	~/Documents/referbib
+cfB	~/.config/i3blocks/config

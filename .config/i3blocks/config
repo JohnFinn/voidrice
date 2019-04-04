@@ -26,10 +26,6 @@ signal=8
 interval=20
 signal=7
 
-#[weather]
-#interval=3600
-#signal=5
-
 [mailbox]
 label=📬
 interval=180
