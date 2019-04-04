@@ -26,10 +26,12 @@ set nohlsearch
 set clipboard=unnamedplus
 
 " more convenient keys
+noremap h ;
 noremap ; l
 noremap l k
 noremap k j
 noremap j h
+
 
 " Some basics:
 	nnoremap c "_c
