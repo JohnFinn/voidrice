@@ -16,3 +16,6 @@ map j scroll left
 map k scroll down
 map l scroll up
 map ; scroll right
+
+# copy to clipboard
+set selection-clipboard clipboard
