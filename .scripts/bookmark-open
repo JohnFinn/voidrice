@@ -1,0 +1,5 @@
+#!/bin/bash
+uri=$(cat ~/.config/bookmarks | dmenu -i -l 8)
+[ -z $uri ] && exit
+"$BROWSER" $uri
+
