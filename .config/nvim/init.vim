@@ -25,6 +25,8 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 
+highlight LineNr ctermfg=DarkGrey
+
 " more convenient keys
 noremap h ;
 noremap ; l
