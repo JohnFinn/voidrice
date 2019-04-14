@@ -1,0 +1,4 @@
+#!/bin/ipython
+import sympy
+sympy.init_session()
+
