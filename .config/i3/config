@@ -20,6 +20,7 @@ set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
 # move floating window with mouse
 floating_modifier $mod
+hide_edge_borders vertical
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
