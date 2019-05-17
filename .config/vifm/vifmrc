@@ -49,7 +49,7 @@ fileviewer *.html w3m -dump %c
 filextype *.html,*.htm firefox %f 2>/dev/null &
 
 fileviewer *.docx docx2txt %c -
-fileviewer *.odt odt2txt %c -
+fileviewer *.odt odt2txt %c
 
 filetype *.csv,*.xlsx sc-im %c
 fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g" | cut -c -%pw
