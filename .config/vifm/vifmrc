@@ -73,5 +73,6 @@ filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &
 
 fileviewer *.cpp,*.c,*.h,*.rs,*.py,*.toml highlight %c --out-format=ansi
+fileviewer *.part file
 
 set vifminfo=dhistory,chistory,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
