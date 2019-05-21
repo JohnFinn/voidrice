@@ -1,4 +1,4 @@
-command=~/.scripts/statusbar/$BLOCK_NAME
+command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
@@ -28,6 +28,10 @@ signal=8
 [torrent]
 interval=20
 signal=7
+
+#[weather]
+#interval=18000
+#signal=5
 
 [mailbox]
 label=📬
@@ -71,4 +75,3 @@ signal=13
 
 [help]
 interval=once
-
