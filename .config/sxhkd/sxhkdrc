@@ -116,9 +116,7 @@ super + F11
 super + F12
 	$TERMINAL -e sudo -A nmtui
 
-XF86AudioRaiseVolume
-	lmc up 5
-XF86AudioLowerVolume
-	lmc down 5
+XF86Audio{Raise,Lower}Volume
+	lmc {up,down} 5
 XF86AudioMute
 	lmc mute
