@@ -61,12 +61,6 @@ bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
 
 bindsym $mod+t			split toggle
-bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
-
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
-
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 mode "$freeze" { bindsym $mod+Shift+f mode "default"
@@ -76,9 +70,6 @@ bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
 bindsym $mod+g			workspace prev
-
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
 
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
@@ -169,6 +160,10 @@ bindsym $mod+Ctrl+Left		exec --no-startup-id i3resize left
 bindsym $mod+Ctrl+Down		exec --no-startup-id i3resize down
 bindsym $mod+Ctrl+Up		exec --no-startup-id i3resize up
 bindsym $mod+Ctrl+Right		exec --no-startup-id i3resize right
+bindsym $mod+Mod1+Left		gaps outer current plus  5
+bindsym $mod+Mod1+Down		gaps inner current plus  5
+bindsym $mod+Mod1+Up		gaps inner current minus 5
+bindsym $mod+Mod1+Right		gaps outer current minus 5
 
 # jkl;
 bindsym $mod+j			focus left
@@ -183,4 +178,11 @@ bindsym $mod+Ctrl+j		exec --no-startup-id i3resize left
 bindsym $mod+Ctrl+k		exec --no-startup-id i3resize down
 bindsym $mod+Ctrl+l		exec --no-startup-id i3resize up
 bindsym $mod+Ctrl+semicolon	exec --no-startup-id i3resize right
+bindsym $mod+Mod1+j		gaps outer current plus  5
+bindsym $mod+Mod1+k		gaps inner current plus  5
+bindsym $mod+Mod1+l		gaps inner current minus 5
+bindsym $mod+Mod1+semicolon	gaps outer current minus 5
+
+bindsym $mod+Mod1+9		gaps inner current set 15; gaps outer current set 15
+bindsym $mod+Mod1+0		gaps inner current set 0; gaps outer current set 0
 
