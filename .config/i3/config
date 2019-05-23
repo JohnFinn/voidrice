@@ -74,8 +74,6 @@ bindsym $mod+i			exec --no-startup-id i3resize down
 bindsym $mod+o			exec --no-startup-id i3resize up
 bindsym $mod+p			exec --no-startup-id i3resize right
 
-bindsym $mod+a			exec --no-startup-id $term -e ipython -i $(which sympy)
-
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
