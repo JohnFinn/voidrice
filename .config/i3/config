@@ -48,8 +48,6 @@ bar {
 }
 
 # #---Basic Bindings---# #
-bindsym $mod+Shift+Return	exec --no-startup-id samedir
-
 bindsym $mod+Shift+space 	floating toggle
 bindsym $mod+space		exec layout-toggle ; exec pkill -RTMIN+13 i3blocks;
 
