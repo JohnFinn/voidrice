@@ -19,6 +19,8 @@ super + a
 	$TERMINAL -e ipython -i $(which sympy)
 super + shift + a
 	$TERMINAL -e pulsemixer; pkill -RTMIN+10 i3blocks
+super + c
+	cabl
 super + shift + c
 	camtoggle
 super + shift + e
