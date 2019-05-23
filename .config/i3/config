@@ -68,12 +68,6 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
-# resize on uiop
-bindsym $mod+u			exec --no-startup-id i3resize left
-bindsym $mod+i			exec --no-startup-id i3resize down
-bindsym $mod+o			exec --no-startup-id i3resize up
-bindsym $mod+p			exec --no-startup-id i3resize right
-
 bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
@@ -87,18 +81,6 @@ bindsym $mod+f			fullscreen toggle
 bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
 bindsym $mod+g			workspace prev
-
-# jkl; focus
-bindsym $mod+j			focus left
-bindsym $mod+k			focus down
-bindsym $mod+l			focus up
-bindsym $mod+semicolon		focus right
-
-# jkl; move
-bindsym $mod+Shift+j		move left
-bindsym $mod+Shift+k		move down
-bindsym $mod+Shift+l		move up
-bindsym $mod+Shift+semicolon	move right
 
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
@@ -192,3 +174,19 @@ bindsym $mod+Shift+Left		move left
 bindsym $mod+Shift+Down		move down
 bindsym $mod+Shift+Up		move up
 bindsym $mod+Shift+Right 	move right
+
+# jkl;
+bindsym $mod+j			focus left
+bindsym $mod+k			focus down
+bindsym $mod+l			focus up
+bindsym $mod+semicolon		focus right
+bindsym $mod+Shift+j		move left
+bindsym $mod+Shift+k		move down
+bindsym $mod+Shift+l		move up
+bindsym $mod+Shift+semicolon	move right
+
+# resize on uiop
+bindsym $mod+u			exec --no-startup-id i3resize left
+bindsym $mod+i			exec --no-startup-id i3resize down
+bindsym $mod+o			exec --no-startup-id i3resize up
+bindsym $mod+p			exec --no-startup-id i3resize right
