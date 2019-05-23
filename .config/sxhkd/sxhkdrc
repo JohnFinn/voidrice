@@ -1,4 +1,6 @@
 # Basic binds
+super + space
+	layout-toggle && pkill -RTMIN+13 i3blocks
 super + Return
 	$TERMINAL
 super + shift + Return
