@@ -49,7 +49,6 @@ bar {
 
 # #---Basic Bindings---# #
 bindsym $mod+Shift+space 	floating toggle
-bindsym $mod+space		exec layout-toggle ; exec pkill -RTMIN+13 i3blocks;
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
