@@ -1,6 +1,7 @@
 #!/bin/sh
 # Profile file. Runs on login.
-
+# intellij proper displaying in dwm
+export _JAVA_AWT_WM_NONREPARENTING=1
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim"

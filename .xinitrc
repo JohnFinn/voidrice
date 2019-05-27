@@ -11,6 +11,4 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 mpdupdate &
-# intellij proper displaying in dwm
-export _JAVA_AWT_WM_NONREPARENTING=1
 exec dwm
