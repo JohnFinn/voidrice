@@ -33,8 +33,6 @@ super + w
 	webby | xargs -r $BROWSER
 super + shift + w
 	$BROWSER
-super + shift + g
-	gimp
 
 # Et cetera...
 super + grave
