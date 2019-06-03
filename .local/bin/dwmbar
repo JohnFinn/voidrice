@@ -26,9 +26,9 @@ status() { \
 	# low and high.  Don't even bother to understand this one unless you
 	# have all day. Takes the weather report format from wttr.in and makes
 	# it look like how I want it for the status bar.
-	[ "$(stat -c %y "$HOME/.local/share/weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] &&
-		printf "| %s" "$(sed '16q;d' "$HOME/.local/share/weatherreport" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/ /g" | tr -d '\n')" &&
-		sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "° |"}'
+	# [ "$(stat -c %y "$HOME/.local/share/weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] &&
+	#	printf "| %s" "$(sed '16q;d' "$HOME/.local/share/weatherreport" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/ /g" | tr -d '\n')" &&
+	#	sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "° |"}'
 
 	# The newsboat module is noticeably slower than all others.
 	# Especially if you don't use newsboat, you will want to comment it out.
@@ -40,23 +40,18 @@ status() { \
 
 	# Wifi quality percentage and  icon if ethernet is connected.
 	printf " %s%s " \
-		"$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')" \
+		"$(grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) }')" \
 		"$(sed "s/down//;s/up/ /" /sys/class/net/e*/operstate)"
 
 	# Show unread mail if mutt-wizard is installed.
 	command -v mw >/dev/null 2>&1 &&
-		printf "| :%s | " "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | wc -l)"
+		printf "| ✉:%s | " "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | wc -l)"
 
 	# Will show all batteries with approximate icon for remaining power.
 	for x in /sys/class/power_supply/BAT?/capacity;
 	do
-	case "$(cat $x)" in
-		100|9[0-9])	printf "" ;;
-		8[0-9]|7[0-9])	printf "" ;;
-		6[0-9]|5[0-9])	printf "" ;;
-		4[0-9]|3[0-9])	printf "" ;;
-		*)		printf "" ;;
-	esac; printf " "
+		cap="$(cat $x)"
+		echo -n '🔋' $cap ''
 	done
 
 	# Date and time.
