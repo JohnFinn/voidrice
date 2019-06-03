@@ -67,7 +67,7 @@ while :; do
 	# So all that big status function was just a command that quicking gets
 	# what we want to be the statusbar. This xsetroot command is what sets
 	# it.
-	xsetroot -name "$(status)"
+	xsetroot -name "$(status | tr '\n' ' ')"
 
 	# Check to see if new weather report is needed.
 	testweather &
