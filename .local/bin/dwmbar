@@ -60,7 +60,7 @@ status() { \
 	done
 
 	# Date and time.
-	printf "| %s" "$(date '+%Y %b %d (%a) %I:%M%p')"
+	printf "| %s" "$(date '+%b %d (%a) %H:%M')"
 	}
 
 while :; do
