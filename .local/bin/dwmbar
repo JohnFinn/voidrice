@@ -36,7 +36,7 @@ status() { \
 
 	# Get the volume of ALSA's master volume output.  Show an icon if or
 	# not muted.
-	printf "%s |" "$(amixer get Master | grep -o "[0-9]*%\|\[on\]\|\[off\]" | sed "s/\[on\]//;s/\[off\]//")"
+	printf "%s |" "$(amixer get Master | grep -o "[0-9]*%\|\[on\]\|\[off\]" | sed "s/\[on\]/🔊/;s/\[off\]/🔇/")"
 
 	# Wifi quality percentage and  icon if ethernet is connected.
 	printf " %s %s%s " \
