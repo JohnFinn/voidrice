@@ -39,8 +39,9 @@ status() { \
 	printf "%s |" "$(amixer get Master | grep -o "[0-9]*%\|\[on\]\|\[off\]" | sed "s/\[on\]//;s/\[off\]//")"
 
 	# Wifi quality percentage and  icon if ethernet is connected.
-	printf " %s%s " \
+	printf " %s %s%s " \
 		"$(grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) }')" \
+		"$(iw dev wlp2s0 link | grep -o 'SSID: .\+$' | cut -d ' ' -f 2)"
 		"$(sed "s/down//;s/up/ /" /sys/class/net/e*/operstate)"
 
 	# Show unread mail if mutt-wizard is installed.
