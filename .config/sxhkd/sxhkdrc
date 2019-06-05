@@ -37,7 +37,7 @@ super + shift + w
 
 # Et cetera...
 shift + shift
-	layout-toggle
+	layout-toggle; refbar
 super + grave
 	dmenuunicode
 super + Scroll_Lock

@@ -55,6 +55,8 @@ status() { \
 		echo -n '🔋' $cap ''
 	done
 
+	setxkbmap -query | awk '/^layout:/ {print "| " $2}'
+
 	# Date and time.
 	printf "| %s" "$(date '+%b %d (%a) %H:%M')"
 	}
