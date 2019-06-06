@@ -10,6 +10,8 @@
 # Basic binds
 super + Return
 	$TERMINAL
+~Shift_R ; ~Shift_R
+	dmenu_run
 super + d
 	dmenu_run
 super + r
