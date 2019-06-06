@@ -15,3 +15,11 @@ unclutter &		# Remove mouse when idle
 setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
 # Properties button extra Mod/Escape
 xmodmap -e 'keycode 135 = Super_R' &
+
+# This loop will run the `refbar` script to refresh the statusbar whenever a
+# command changes the music player's status.
+while pgrep -x mpd; do
+	mpc idle >/dev/null 2>&1
+	refbar
+done &
+notify-send "Welcome to LARBS on Void with dwm" "Press super+F1 for the help menu." # LARBSWELCOME

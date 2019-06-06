@@ -29,7 +29,7 @@ super + a
 super + c
 	$TERMINAL -e calcurse -D ~/.config/calcurse
 super + shift + a
-	$TERMINAL -e pulsemixer
+	$TERMINAL -e alsamixer; refbar
 super + shift + c
 	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
 super + shift + e
@@ -38,8 +38,6 @@ super + shift + w
 	$BROWSER
 
 # Et cetera...
-shift + Shift_{R,L}
-	layout-toggle; refbar
 super + grave
 	dmenuunicode
 super + Scroll_Lock
@@ -58,10 +56,8 @@ XF86Launch1
 	xset dpms force off
 XF86TouchpadToggle
 	(synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null || synclient TouchpadOff=1
-XF86TouchpadOff
-	synclient TouchpadOff=1
-XF86TouchpadOn
-	synclient TouchpadOff=0
+XF86Touchpad{Off,On}
+	synclient TouchpadOff={1,0}
 
 # Recording
 # Take screenshot
@@ -70,12 +66,9 @@ Print
 # Pick screenshot type
 shift + Print
 	maimpick
-# Record audio or video
-super + Print
-	dmenurecord
-# kill active recording
-super + Delete
-	dmenurecord kill
+# Print: Record audio or video; Del: kill recording
+super + {Print,Delete}
+	dmenurecord {,kill}
 
 # Pause audio
 super + {_,shift +} p
@@ -140,6 +133,9 @@ XF86MonBrightness{Up,Down}
 
 
 # Function keys
+super + shift + F1
+	grep LARBSWELCOME ~/.xprofile && ( sed -i "/LARBSWELCOME/d" ~/.xprofile && notify-send "LARBS welcome message" "Welcome message disabled. Press Super+Shift+F1 again to reverse." ) || ( echo "notify-send \"Welcome to LARBS on Void with dwm\" \"Press super+F1 for the help menu.\" # LARBSWELCOME" >> ~/.xprofile && notify-send "LARBS welcome message" "Welcome message re-enabled." )
+#notify-send "LARBS" "The LARBS welcome message has been disabled."; sed -i "/LARBSWELCOME/d" ~/.xprofile
 # Show readme
 super + F1
 	groff -mom $HOME/.local/share/larbs/readme.mom -Tpdf | zathura -
