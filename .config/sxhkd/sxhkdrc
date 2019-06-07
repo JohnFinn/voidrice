@@ -38,6 +38,8 @@ super + shift + w
 	$BROWSER
 
 # Et cetera...
+shift + Shift_{R,L}
+	layout-toggle; refbar
 super + grave
 	dmenuunicode
 super + Scroll_Lock
