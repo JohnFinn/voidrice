@@ -39,7 +39,7 @@ status() { \
 	# Wifi quality percentage and  icon if ethernet is connected.
 	grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) "%" }'
 	iw dev wlp2s0 link | grep -o 'SSID: .\+$' | cut -d ' ' -f 2
-	sed "s/down//;s/up//" /sys/class/net/e*/operstate
+	[ -e  /sys/class/net/e*/operstate ] && sed "s/down//;s/up//" /sys/class/net/e*/operstate
 
 	# Show unread mail if mutt-wizard is installed.
 	command -v mw >/dev/null 2>&1 &&
