@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "$(xrandr --query | awk '/^HDMI/ {print $2}')" == 'connected' ]
+then
+	# hdmi connected
+	xrandr --output HDMI-1 --auto --scale 1.0x1.0  --output eDP-1 --right-of HDMI-1 --auto --scale 1.0x1.0
+else
+	# hdmi disconnected
+	xrandr --output eDP-1 --output HDMI-1 --off
+fi

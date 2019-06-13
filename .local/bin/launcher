@@ -26,6 +26,7 @@ commands = {
     'isu.ifmo.ru':          [ BROWSER, 'isu.ifmo.ru'                             ],
     'de.ifmo.ru':           [ BROWSER, 'de.ifmo.ru'                              ],
     'clion':                [ 'clion'                                            ],
+    'auto-select-screen':   [ 'auto-select-screen'                               ],
 }
 
 output = dmenu(commands.keys())
