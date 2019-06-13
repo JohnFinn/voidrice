@@ -11,7 +11,7 @@
 super + Return
 	$TERMINAL
 ~Shift_R ; ~Shift_R
-	dmenu_run
+	launcher
 super + d
 	dmenu_run
 super + r

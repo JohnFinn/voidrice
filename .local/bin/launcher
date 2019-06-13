@@ -1,0 +1,32 @@
+#!/bin/python
+
+from os import getenv
+from subprocess import Popen, PIPE, STDOUT
+
+def dmenu(args):
+    p = Popen(['dmenu', '-l', '10'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
+    return p.communicate( input='\n'.join(args).encode() )[0][:-1].decode()
+
+TERMINAL = getenv('TERMINAL')
+BROWSER  = getenv('BROWSER')
+
+commands = {
+    'htop':                 [ TERMINAL, '-e', 'htop'                             ],
+    'rate.sx':              [ TERMINAL, '-e', '_wait', 'curl', 'rate.sx'         ],
+    'rate.sx/btc@10d':      [ TERMINAL, '-e', '_wait', 'curl', 'rate.sx/btc@10d' ],
+    'wttr.in':              [ TERMINAL, '-e', '_wait', 'curl', 'wttr.in'         ],
+    'getnews.tech':         [ TERMINAL, '-e', '_wait', 'curl', 'getnews.tech'    ],
+    'maps.google.com':      [ BROWSER, 'maps.google.com'                         ],
+    'youtube.com':          [ BROWSER, 'youtube.com'                             ],
+    'vk.com':               [ BROWSER, 'vk.com'                                  ],
+    'google.com':           [ BROWSER, 'google.com'                              ],
+    'github.com':           [ BROWSER, 'github.com'                              ],
+    'rutracker.org':        [ BROWSER, 'rutracker.org'                           ],
+    'translate.google.com': [ BROWSER, 'translate.google.com'                    ],
+    'isu.ifmo.ru':          [ BROWSER, 'isu.ifmo.ru'                             ],
+    'de.ifmo.ru':           [ BROWSER, 'de.ifmo.ru'                              ],
+    'clion':                [ 'clion'                                            ],
+}
+
+output = dmenu(commands.keys())
+Popen(commands[output])

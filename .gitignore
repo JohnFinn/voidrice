@@ -1,11 +1,9 @@
 # I also use git status command for tracking my dotfiles.
 # this file purpose is to help me with it.
-.local
 .cache
-.bash_history
+.*_history
 .bash_logout
 .esd_auth
-.python_history
 .ssh
 .gitconfig
 .config/vifm
@@ -24,14 +22,10 @@
 .config/nvim/
 .config/pulse/
 .ipython/
-backup/
-books/
-code/
-jobdocs
-other-books/
-todo
-Downloads
 .config/GIMP
 .config/discord
 .gnupg
 .pki
+.cargo
+.rustup
+.password-store
