@@ -7,3 +7,4 @@ else
 	# hdmi disconnected
 	xrandr --output eDP-1 --output HDMI-1 --off
 fi
+setbg
