@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# in order for this to work
+# /etc/X11/Xwrapper.config has to have the following line
+# allowed_users=anybody
+# without it xinit will say something like only console users are allowed
+
+# killall xinit will also kill current terminal, and this script, so we need some workaround
+postpone 2s nvrun &
+killall xinit

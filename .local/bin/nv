@@ -1,0 +1,21 @@
+#!/bin/sh
+
+on()
+{
+	echo -n ON | sudo tee /proc/acpi/bbswitch
+	sudo modprobe nvidia
+	sudo modprobe nvidia_drm
+}
+
+off()
+{
+	sudo rmmod nvidia_drm
+	sudo rmmod nvidia_modeset
+	sudo rmmod nvidia
+	echo -n OFF | sudo tee /proc/acpi/bbswitch
+}
+
+case $1 in
+	on) on ;;
+	off) off ;;
+esac
