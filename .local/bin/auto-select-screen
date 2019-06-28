@@ -1,10 +1,19 @@
 #!/bin/sh
+LAPTOP='eDP-1'
+HDMI='HDMI-1'
+
+if [ "$(xrandr --query | grep eDP-1-1 | wc -l)" == 1 ]
+then
+	LAPTOP='eDP-1-1'
+	HDMI='HDMI-1-1'
+fi
+
 if [ "$(xrandr --query | awk '/^HDMI/ {print $2}')" == 'connected' ]
 then
 	# hdmi connected
-	xrandr --output HDMI-1 --auto --scale 1.0x1.0  --output eDP-1 --right-of HDMI-1 --auto --scale 1.0x1.0
+	xrandr --output $HDMI --auto --scale 1.0x1.0  --output $LAPTOP --right-of $HDMI --auto --scale 1.0x1.0
 else
 	# hdmi disconnected
-	xrandr --output eDP-1 --output HDMI-1 --off
+	xrandr --output $LAPTOP --output $HDMI --off
 fi
 setbg
