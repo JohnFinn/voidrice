@@ -16,7 +16,9 @@ commands = {
     'rate.sx/btc@10d':      [ TERMINAL, '-e', '_wait', 'curl', 'rate.sx/btc@10d' ],
     'wttr.in':              [ TERMINAL, '-e', '_wait', 'curl', 'wttr.in'         ],
     'getnews.tech':         [ TERMINAL, '-e', '_wait', 'curl', 'getnews.tech'    ],
+    'torrents':             [ TERMINAL, '-e', 'transmission-remote-cli'          ],
     'maps.google.com':      [ BROWSER, 'maps.google.com'                         ],
+    'maps.yandex.ru':       [ BROWSER, 'maps.yandex.ru'                          ],
     'youtube.com':          [ BROWSER, 'youtube.com'                             ],
     'vk.com':               [ BROWSER, 'vk.com'                                  ],
     'google.com':           [ BROWSER, 'google.com'                              ],
@@ -27,6 +29,8 @@ commands = {
     'de.ifmo.ru':           [ BROWSER, 'de.ifmo.ru'                              ],
     'clion':                [ 'clion'                                            ],
     'auto-select-screen':   [ 'auto-select-screen'                               ],
+    'praktika':             [ BROWSER, 'docs.google.com/document/d/1sXDwtJuNOTAvcrKmN7wxNDdWvmF_p1h2ttucLJRcue0/edit' ],
+    'switch':               [ 'switch' ],
 }
 
 output = dmenu(commands.keys())
