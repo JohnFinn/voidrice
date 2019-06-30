@@ -10,7 +10,7 @@
 # Basic binds
 super + Return
 	$TERMINAL
-~Shift_R ; ~Shift_R
+~Control_R ; ~Control_R
 	launcher
 super + d
 	dmenu_run
@@ -38,7 +38,9 @@ super + shift + w
 	$BROWSER
 
 # Et cetera...
-shift + Shift_{R,L}
+shift + Alt_{L,R}
+	layout-toggle; refbar
+alt + Shift_{R,L}
 	layout-toggle; refbar
 super + grave
 	dmenuunicode
