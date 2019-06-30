@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=isu.ifmo.ru
+Exec=sh -c "$BROWSER isu.ifmo.ru"

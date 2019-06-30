@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=vk.com
+Exec=sh -c "$BROWSER vk.com"

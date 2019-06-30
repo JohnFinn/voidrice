@@ -11,7 +11,7 @@
 super + Return
 	$TERMINAL
 ~Control_R ; ~Control_R
-	launcher
+	rofi -show drun
 super + d
 	dmenu_run
 super + r

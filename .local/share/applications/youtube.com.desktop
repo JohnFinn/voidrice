@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=youtube.com
+Exec=sh -c "$BROWSER youtube.com"

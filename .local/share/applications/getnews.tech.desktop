@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=getnews.tech
+Exec=sh -c "$TERMINAL -e _wait curl getnews.tech"

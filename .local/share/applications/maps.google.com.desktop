@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=maps.google.com
+Exec=sh -c "$BROWSER maps.google.com"

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=translate.google.com
+Exec=sh -c "$BROWSER translate.google.com"

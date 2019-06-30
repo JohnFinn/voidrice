@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=rate.sx/btc@10d
+Exec=sh -c "$TERMINAL -e _wait curl rate.sx/btc@10d"

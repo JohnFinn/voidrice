@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=google.com
+Exec=sh -c "$BROWSER           google.com"

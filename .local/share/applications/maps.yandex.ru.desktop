@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=maps.yandex.ru
+Exec=sh -c "$BROWSER maps.yandex.ru"

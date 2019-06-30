@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=github.com
+Exec=sh -c "$BROWSER           github.com"

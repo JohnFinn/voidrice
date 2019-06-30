@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=wttr.in
+Exec=sh -c "$TERMINAL -e _wait curl wttr.in"

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=rutracker.org
+Exec=sh -c "$BROWSER        rutracker.org"
