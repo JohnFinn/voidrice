@@ -3,8 +3,34 @@
 # in order for this to work
 # /etc/X11/Xwrapper.config has to have the following line
 # allowed_users=anybody
+# needs_root_rights=yes
 # without it xinit will say something like only console users are allowed
 
-# killall xinit will also kill current terminal, and this script, so we need some workaround
-postpone 2s nvrun &
-killall xinit
+is_nvidia()
+{
+	[ "$(cat /proc/acpi/bbswitch | cut --delimiter ' ' --fields 2)" == ON ]
+}
+
+main()
+{
+	killall xinit
+	while pgrep Xorg > /dev/null
+	do
+		true
+	done
+	if is_nvidia
+	then
+		nv off
+		xinit -- vt1
+	else
+		nv on
+		xinit /etc/X11/xinit/nvidia-xinitrc -- vt1
+	fi
+}
+
+if [ "$1" == 'not-detach' ]
+then
+	main > /tmp/log1 2> /tmp/log2
+else
+	switch not-detach &
+fi

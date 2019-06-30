@@ -1,3 +1,2 @@
 #!/bin/sh
-nv on
 xinit /etc/X11/xinit/nvidia-xinitrc -- :0 vt1 -nolisten tcp -br -config nvidia-xorg.conf -configdir nvidia-xorg.conf.d

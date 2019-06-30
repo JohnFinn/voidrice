@@ -1,7 +1,0 @@
-#!/bin/sh
-offset="$1"
-shift
-cmd="$@"
-
-sleep "$offset"
-$cmd
