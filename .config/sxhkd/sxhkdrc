@@ -12,6 +12,8 @@ super + Return
 	$TERMINAL
 ~Control_R ; ~Control_R
 	rofi -show drun
+super + w
+	open-text $(xclip -out -selection clipboard)
 super + d
 	dmenu_run
 super + r
