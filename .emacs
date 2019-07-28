@@ -52,7 +52,7 @@
 (scroll-bar-mode -1)
 
 (defun my:terminal(command) (interactive)
-       (call-process (getenv "TERMINAL") nil t nil "-e" "two" command (getenv "SHELL"))
+       (start-process "terminal" nil (getenv "TERMINAL") "-e" "two" command (getenv "SHELL"))
 )
 
 (global-set-key (kbd "M-1") 'shell-command)
