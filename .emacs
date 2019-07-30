@@ -44,12 +44,17 @@
 )
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 
+(require 'rtags)
+
+
+
 
 (load-theme 'wombat)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(fringe-mode '(0 . 0))
 
 (defun my:terminal(command) (interactive)
        (start-process "terminal" nil (getenv "TERMINAL") "-e" "two" command (getenv "SHELL"))
@@ -61,4 +66,25 @@
 (global-set-key [f11] 'toggle-tool-bar-mode-from-frame)
 (global-set-key [f12] 'toggle-menu-bar-mode-from-frame)
 (global-set-key [f10] 'toggle-scroll-bar)
-(global-set-key [f9]  (lambda () (interactive)	(my:terminal "make") ))
+(global-set-key [f9]  (lambda () (interactive) (my:terminal "make") ))
+
+(setq rtags-split-window-function (lambda ()
+      (split-window-right)
+      (windmove-right)
+      ))
+
+(global-unset-key (kbd "M-u"))
+(global-set-key (kbd "M-u a") 'rtags-find-references-at-point)
+(global-set-key (kbd "M-u d") 'rtags-find-references-current-dir)
+(global-set-key (kbd "M-u f") 'rtags-find-references-current-file)
+
+(global-unset-key (kbd "M-f"))
+(global-unset-key (kbd "M-v"))
+(global-set-key (kbd "M-f a") 'rtags-find-symbol)
+(global-set-key (kbd "M-f d") 'rtags-find-symbol-current-dir)
+(global-set-key (kbd "M-f f") 'rtags-find-symbol-current-file)
+(global-set-key (kbd "M-f v") 'rtags-find-virtuals-at-point)
+(global-set-key (kbd "M-f F") 'rtags-find-file)
+
+(global-unset-key (kbd "C-r"))
+(global-set-key (kbd "C-r") 'rtags-rename-symbol)
