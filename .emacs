@@ -23,6 +23,8 @@
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
+(require 'drag-stuff)
+
 ;(require 'iedit)
 ; fix idet bug
 (define-key global-map (kbd "C-c r") 'iedit-mode)
@@ -74,6 +76,11 @@
       (split-window-right)
       (windmove-right)
       ))
+
+(global-set-key (kbd "C-K") 'drag-stuff-down)
+(global-set-key (kbd "C-L") 'drag-stuff-up)
+(global-set-key (kbd "C-J") 'drag-stuff-left)
+(global-set-key (kbd "C-:") 'drag-stuff-right)
 
 (global-unset-key (kbd "M-u"))
 (global-set-key (kbd "M-u a") 'rtags-find-references-at-point)
