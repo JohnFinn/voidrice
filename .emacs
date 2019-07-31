@@ -25,10 +25,6 @@
 
 (require 'drag-stuff)
 
-;(require 'iedit)
-; fix idet bug
-(define-key global-map (kbd "C-c r") 'iedit-mode)
-
 (defun my:flymake-google-init ()
   (require 'flymake-google-cpplint)
   (custom-set-variables
@@ -94,6 +90,10 @@
 (global-set-key (kbd "M-f f") 'rtags-find-symbol-current-file)
 (global-set-key (kbd "M-f v") 'rtags-find-virtuals-at-point)
 (global-set-key (kbd "M-f F") 'rtags-find-file)
+
+;(require 'iedit)
+; fix idet bug
+(define-key global-map (kbd "C-c r") 'iedit-mode)
 
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-r") 'rtags-rename-symbol)
