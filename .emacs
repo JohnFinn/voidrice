@@ -1,3 +1,7 @@
+; prevent emacs from adding mess at the end of this file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
@@ -49,7 +53,7 @@
 
 
 
-(load-theme 'wombat)
+(load-theme 'monokai)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
