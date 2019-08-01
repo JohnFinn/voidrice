@@ -99,6 +99,9 @@
 (global-unset-key (kbd "M-k"))
 (global-unset-key (kbd "M-l"))
 (global-unset-key (kbd "M-c"))
+(global-unset-key (kbd "M-j"))
+(local-unset-key (kbd "M-j"))
+(global-unset-key (kbd "M-;"))
 
 (global-set-key (kbd "M-u") 'rtags-find-references-at-point)
 (global-set-key (kbd "M-d") 'rtags-find-symbol-at-point)
@@ -113,8 +116,19 @@
 (global-set-key (kbd "M-r f") 'rtags-find-references-current-file)
 (global-set-key (kbd "M-c d") 'rtags-find-symbol-current-dir)
 (global-set-key (kbd "M-c f") 'rtags-find-symbol-current-file)
+(global-set-key (kbd "M-j") 'previous-buffer)
+(global-set-key (kbd "M-;") 'next-buffer)
 
-					;(require 'iedit)
+
+(defun peek-symbol() (interactive)
+       (split-window-below -14)
+       (windmove-down)
+       (rtags-find-symbol-at-point)
+       )
+
+(global-set-key (kbd "M-p") 'peek-symbol)
+
+;(require 'iedit)
 ; fix idet bug
 (define-key global-map (kbd "C-c r") 'iedit-mode)
 
