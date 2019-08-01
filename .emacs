@@ -47,6 +47,20 @@
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 
 (require 'rtags)
+(add-hook 'c-mode-hook 'rtags-start-process-unless-running)
+
+(require 'quelpa)
+(require 'use-package)
+(require 'quelpa-use-package)
+(use-package gdb-mi :quelpa (gdb-mi :fetcher git
+                                    :url "https://github.com/weirdNox/emacs-gdb.git"
+                                    :files ("*.el" "*.c" "*.h" "Makefile"))
+  :init
+  (fmakunbound 'gdb)
+  (fmakunbound 'gdb-enable-debug))
+
+
+(load "~/.emacs.d/debugger.el")
 
 (load-theme 'monokai)
 (global-hl-line-mode 1)
@@ -79,19 +93,28 @@
 (global-set-key (kbd "C-:") 'drag-stuff-right)
 
 (global-unset-key (kbd "M-u"))
-(global-set-key (kbd "M-u a") 'rtags-find-references-at-point)
-(global-set-key (kbd "M-u d") 'rtags-find-references-current-dir)
-(global-set-key (kbd "M-u f") 'rtags-find-references-current-file)
-
+(global-unset-key (kbd "M-r"))
 (global-unset-key (kbd "M-f"))
-(global-unset-key (kbd "M-v"))
-(global-set-key (kbd "M-f a") 'rtags-find-symbol)
-(global-set-key (kbd "M-f d") 'rtags-find-symbol-current-dir)
-(global-set-key (kbd "M-f f") 'rtags-find-symbol-current-file)
-(global-set-key (kbd "M-f v") 'rtags-find-virtuals-at-point)
-(global-set-key (kbd "M-f F") 'rtags-find-file)
+(global-unset-key (kbd "M-d"))
+(global-unset-key (kbd "M-k"))
+(global-unset-key (kbd "M-l"))
+(global-unset-key (kbd "M-c"))
 
-;(require 'iedit)
+(global-set-key (kbd "M-u") 'rtags-find-references-at-point)
+(global-set-key (kbd "M-d") 'rtags-find-symbol-at-point)
+(global-set-key (kbd "M-v") 'rtags-find-virtuals-at-point)
+(global-set-key (kbd "M-s") 'rtags-find-symbol)
+(global-set-key (kbd "M-f") 'rtags-find-file)
+(global-set-key (kbd "M-k") 'rtags-next-match)
+(global-set-key (kbd "M-l") 'rtags-previous-match)
+
+(global-set-key (kbd "M-r a") 'rtags-find-references)
+(global-set-key (kbd "M-r d") 'rtags-find-references-current-dir)
+(global-set-key (kbd "M-r f") 'rtags-find-references-current-file)
+(global-set-key (kbd "M-c d") 'rtags-find-symbol-current-dir)
+(global-set-key (kbd "M-c f") 'rtags-find-symbol-current-file)
+
+					;(require 'iedit)
 ; fix idet bug
 (define-key global-map (kbd "C-c r") 'iedit-mode)
 
