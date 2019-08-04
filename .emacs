@@ -1,10 +1,16 @@
-; prevent emacs from adding mess at the end of this file
+					; todo
+					; multiple crusors (jump to next occurence; next line)
+					; fix M-j in C++ mode
+					; faster load time
+;prevent emacs from adding mess at the end of this file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
+
+(require 'multiple-cursors)
 
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -24,6 +30,15 @@
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
 (require 'drag-stuff)
+
+(require 'company)
+(require 'company-jedi)
+(require 'company-racer)
+
+(add-hook 'python-mode-hook 'auto-complete-mode)
+(add-hook 'python-mode-hook 'jedi:ac-setup)
+(setq-default py-shell-name "ipython")
+(setq-default which-buf-name "IPython")
 
 (defun my:flymake-google-init ()
   (require 'flymake-google-cpplint)
@@ -49,6 +64,19 @@
 (require 'rtags)
 (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
 
+(require 'rust-mode)
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+
+(add-hook 'racer-mode-hook #'company-mode)
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+(company-mode)
+
+
 (require 'quelpa)
 (require 'use-package)
 (require 'quelpa-use-package)
@@ -59,8 +87,6 @@
   (fmakunbound 'gdb)
   (fmakunbound 'gdb-enable-debug))
 
-
-(load "~/.emacs.d/debugger.el")
 
 (load-theme 'monokai)
 (global-hl-line-mode 1)
@@ -92,6 +118,7 @@
 (global-set-key (kbd "C-J") 'drag-stuff-left)
 (global-set-key (kbd "C-:") 'drag-stuff-right)
 
+
 (global-unset-key (kbd "M-u"))
 (global-unset-key (kbd "M-r"))
 (global-unset-key (kbd "M-f"))
@@ -103,22 +130,24 @@
 (local-unset-key (kbd "M-j"))
 (global-unset-key (kbd "M-;"))
 
-(global-set-key (kbd "M-u") 'rtags-find-references-at-point)
-(global-set-key (kbd "M-d") 'rtags-find-symbol-at-point)
-(global-set-key (kbd "M-v") 'rtags-find-virtuals-at-point)
-(global-set-key (kbd "M-s") 'rtags-find-symbol)
-(global-set-key (kbd "M-f") 'rtags-find-file)
-(global-set-key (kbd "M-k") 'rtags-next-match)
-(global-set-key (kbd "M-l") 'rtags-previous-match)
+(define-key c-mode-base-map (kbd "M-u") 'rtags-find-references-at-point)
+(define-key c-mode-base-map (kbd "M-d") 'rtags-find-symbol-at-point)
+(define-key c-mode-base-map (kbd "M-v") 'rtags-find-virtuals-at-point)
+(define-key c-mode-base-map (kbd "M-s") 'rtags-find-symbol)
+(define-key c-mode-base-map (kbd "M-f") 'rtags-find-file)
+(define-key c-mode-base-map (kbd "M-k") 'rtags-next-match)
+(define-key c-mode-base-map (kbd "M-l") 'rtags-previous-match)
 
-(global-set-key (kbd "M-r a") 'rtags-find-references)
-(global-set-key (kbd "M-r d") 'rtags-find-references-current-dir)
-(global-set-key (kbd "M-r f") 'rtags-find-references-current-file)
-(global-set-key (kbd "M-c d") 'rtags-find-symbol-current-dir)
-(global-set-key (kbd "M-c f") 'rtags-find-symbol-current-file)
-(global-set-key (kbd "M-j") 'previous-buffer)
-(global-set-key (kbd "M-;") 'next-buffer)
+(define-key c-mode-base-map (kbd "M-r a") 'rtags-find-references)
+(define-key c-mode-base-map (kbd "M-r d") 'rtags-find-references-current-dir)
+(define-key c-mode-base-map (kbd "M-r f") 'rtags-find-references-current-file)
+(define-key c-mode-base-map (kbd "M-c d") 'rtags-find-symbol-current-dir)
+(define-key c-mode-base-map (kbd "M-c f") 'rtags-find-symbol-current-file)
+(define-key c-mode-base-map (kbd "M-j") 'previous-buffer)
+(define-key c-mode-base-map (kbd "M-;") 'next-buffer)
 
+
+(define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
 
 (defun peek-symbol() (interactive)
        (split-window-below -14)
@@ -134,3 +163,4 @@
 
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-r") 'rtags-rename-symbol)
+
