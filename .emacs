@@ -63,7 +63,7 @@
 
 (require 'rtags)
 (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
-
+(add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
 
 (require 'rust-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
@@ -103,7 +103,11 @@
 
 (global-set-key (kbd "M-1") 'shell-command)
 (global-set-key [f2] 'eval-buffer) ; reload config file
-(global-set-key (kbd "C-q") 'delete-window)
+(global-set-key (kbd "C-q") (lambda () (interactive)
+			      (if (cdr (window-list))
+				  (delete-window)
+			      (kill-buffer))
+))
 (global-set-key [f11] 'toggle-tool-bar-mode-from-frame)
 (global-set-key [f12] 'toggle-menu-bar-mode-from-frame)
 (global-set-key [f10] 'toggle-scroll-bar)
@@ -156,8 +160,8 @@
 (define-key c-mode-base-map (kbd "M-r f") 'rtags-find-references-current-file)
 (define-key c-mode-base-map (kbd "M-c d") 'rtags-find-symbol-current-dir)
 (define-key c-mode-base-map (kbd "M-c f") 'rtags-find-symbol-current-file)
-(define-key c-mode-base-map (kbd "M-j") 'previous-buffer)
-(define-key c-mode-base-map (kbd "M-;") 'next-buffer)
+(global-set-key (kbd "M-j") 'previous-buffer)
+(global-set-key (kbd "M-;") 'next-buffer)
 
 
 (define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
