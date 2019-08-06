@@ -11,7 +11,7 @@
 (package-initialize)
 
 (require 'multiple-cursors)
-
+(require 'expand-region)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
@@ -112,6 +112,8 @@
       (split-window-right)
       (windmove-right)
       ))
+
+(global-set-key (kbd "C-@") 'er/expand-region)
 
 (global-set-key (kbd "C-K") 'drag-stuff-down)
 (global-set-key (kbd "C-L") 'drag-stuff-up)
