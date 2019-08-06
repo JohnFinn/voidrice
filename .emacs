@@ -64,6 +64,7 @@
 (require 'rtags)
 (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
 
+
 (require 'rust-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
@@ -113,6 +114,16 @@
       (windmove-right)
       ))
 
+
+;(setq x-select-enable-clipboard t)
+
+(global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-/"))
+
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-c C-v") 'clipboard-yank)
+(global-set-key (kbd "C-c C-c") 'clipboard-kill-ring-save)
+
 (global-set-key (kbd "C-@") 'er/expand-region)
 
 (global-set-key (kbd "C-K") 'drag-stuff-down)
@@ -157,11 +168,11 @@
        (rtags-find-symbol-at-point)
        )
 
-(global-set-key (kbd "M-p") 'peek-symbol)
+(define-key c-mode-base-map (kbd "M-p") 'peek-symbol)
 
 ;(require 'iedit)
 ; fix idet bug
-(define-key global-map (kbd "C-c r") 'iedit-mode)
+(define-key global-map (kbd "C-x r") 'iedit-mode)
 
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-r") 'rtags-rename-symbol)
