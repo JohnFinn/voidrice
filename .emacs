@@ -1,6 +1,5 @@
 					; todo
 					; multiple crusors (jump to next occurence; next line)
-					; fix M-j in C++ mode
 					; faster load time
 ;prevent emacs from adding mess at the end of this file
 (setq custom-file "~/.emacs.d/custom.el")
@@ -144,24 +143,26 @@
 (global-unset-key (kbd "M-l"))
 (global-unset-key (kbd "M-c"))
 (global-unset-key (kbd "M-j"))
-(local-unset-key (kbd "M-j"))
-(global-unset-key (kbd "M-;"))
+
+(define-key c-mode-base-map (kbd "M-g k") 'rtags-next-match)
+(define-key c-mode-base-map (kbd "M-g l") 'rtags-previous-match)
+(global-set-key (kbd "M-g j") 'previous-buffer)
+(global-set-key (kbd "M-g ;") 'next-buffer)
+(global-set-key (kbd "M-g M-g") 'beginning-of-buffer)
+(global-set-key (kbd "M-g G") 'end-of-buffer)
+
 
 (define-key c-mode-base-map (kbd "M-u") 'rtags-find-references-at-point)
 (define-key c-mode-base-map (kbd "M-d") 'rtags-find-symbol-at-point)
 (define-key c-mode-base-map (kbd "M-v") 'rtags-find-virtuals-at-point)
 (define-key c-mode-base-map (kbd "M-s") 'rtags-find-symbol)
 (define-key c-mode-base-map (kbd "M-f") 'rtags-find-file)
-(define-key c-mode-base-map (kbd "M-k") 'rtags-next-match)
-(define-key c-mode-base-map (kbd "M-l") 'rtags-previous-match)
 
 (define-key c-mode-base-map (kbd "M-r a") 'rtags-find-references)
 (define-key c-mode-base-map (kbd "M-r d") 'rtags-find-references-current-dir)
 (define-key c-mode-base-map (kbd "M-r f") 'rtags-find-references-current-file)
 (define-key c-mode-base-map (kbd "M-c d") 'rtags-find-symbol-current-dir)
 (define-key c-mode-base-map (kbd "M-c f") 'rtags-find-symbol-current-file)
-(global-set-key (kbd "M-j") 'previous-buffer)
-(global-set-key (kbd "M-;") 'next-buffer)
 
 
 (define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
