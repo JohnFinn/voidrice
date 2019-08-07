@@ -134,6 +134,7 @@
 (global-set-key (kbd "C-J") 'drag-stuff-left)
 (global-set-key (kbd "C-:") 'drag-stuff-right)
 
+(windmove-default-keybindings 'meta)
 
 (global-unset-key (kbd "M-u"))
 (global-unset-key (kbd "M-r"))
@@ -144,13 +145,14 @@
 (global-unset-key (kbd "M-c"))
 (global-unset-key (kbd "M-j"))
 
+
 (define-key c-mode-base-map (kbd "M-g k") 'rtags-next-match)
 (define-key c-mode-base-map (kbd "M-g l") 'rtags-previous-match)
 (global-set-key (kbd "M-g j") 'previous-buffer)
 (global-set-key (kbd "M-g ;") 'next-buffer)
 (global-set-key (kbd "M-g M-g") 'beginning-of-buffer)
 (global-set-key (kbd "M-g G") 'end-of-buffer)
-
+(bind-key* (kbd "M-j") 'mc/mark-next-like-this)
 
 (define-key c-mode-base-map (kbd "M-u") 'rtags-find-references-at-point)
 (define-key c-mode-base-map (kbd "M-d") 'rtags-find-symbol-at-point)
