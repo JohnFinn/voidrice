@@ -122,6 +122,9 @@
 
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-/"))
+(global-unset-key (kbd "M-/"))
+
+(global-set-key (kbd "M-/") 'isearch-forward)
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-c C-v") 'clipboard-yank)
