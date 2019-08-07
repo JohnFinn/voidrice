@@ -1,6 +1,7 @@
 					; todo
-					; multiple crusors (jump to next occurence; next line)
+					; peek function: do not create another window
 					; faster load time
+; do not open  all buffers when loading
 ;prevent emacs from adding mess at the end of this file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -11,9 +12,6 @@
 
 (require 'multiple-cursors)
 (require 'expand-region)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(ac-config-default)
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -25,14 +23,30 @@
   (add-to-list 'achead:include-directories '"/usr/include")
 )
 
-(add-hook 'c++-mode-hook 'my:ac-c-header-init)
-(add-hook 'c-mode-hook 'my:ac-c-header-init)
 
 (require 'drag-stuff)
 
 (require 'company)
-(require 'company-jedi)
+(require 'company-elisp)
+(require 'company-c-headers)
+(require 'company-rtags)
+;(require 'company-jedi)
+(require 'jedi)
 (require 'company-racer)
+
+(global-company-mode 1)
+(add-to-list 'company-backends 'company-elisp)
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-backends 'company-rtags) ; try irony
+;(add-to-list 'company-backends 'company-jedi)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-to-list 'company-backends 'company-racer)
+(add-to-list 'company-c-headers-path-system "/usr/include/c++/9.1.0/")
+
+(setq company-idle-delay              0.4
+      company-minimum-prefix-length   2
+      )
+
 
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
@@ -74,7 +88,7 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
-(company-mode)
+(require 'python-mode)
 
 
 (require 'quelpa)
@@ -157,6 +171,7 @@
 (global-set-key (kbd "M-g G") 'end-of-buffer)
 (bind-key* (kbd "M-j") 'mc/mark-next-like-this)
 
+
 (define-key c-mode-base-map (kbd "M-u") 'rtags-find-references-at-point)
 (define-key c-mode-base-map (kbd "M-d") 'rtags-find-symbol-at-point)
 (define-key c-mode-base-map (kbd "M-v") 'rtags-find-virtuals-at-point)
@@ -169,7 +184,7 @@
 (define-key c-mode-base-map (kbd "M-c d") 'rtags-find-symbol-current-dir)
 (define-key c-mode-base-map (kbd "M-c f") 'rtags-find-symbol-current-file)
 
-
+(define-key python-mode-map (kbd "M-d") 'jedi:goto-definition)
 (define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
 
 (defun peek-symbol() (interactive)
