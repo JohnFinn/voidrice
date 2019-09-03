@@ -1,12 +1,16 @@
 					; todo
 					; multiple crusors (jump to next occurence; next line)
 					; faster load time
-;prevent emacs from adding mess at the end of this file
+
+					;prevent emacs from adding mess at the end of this file
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
 (require 'multiple-cursors)
@@ -33,6 +37,8 @@
 (require 'company)
 (require 'company-jedi)
 (require 'company-racer)
+(require 'tex)
+(require 'company-auctex)
 
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
@@ -80,12 +86,12 @@
 (require 'quelpa)
 (require 'use-package)
 (require 'quelpa-use-package)
-(use-package gdb-mi :quelpa (gdb-mi :fetcher git
-                                    :url "https://github.com/weirdNox/emacs-gdb.git"
-                                    :files ("*.el" "*.c" "*.h" "Makefile"))
-  :init
-  (fmakunbound 'gdb)
-  (fmakunbound 'gdb-enable-debug))
+;(use-package gdb-mi :quelpa (gdb-mi :fetcher git
+;                                    :url "https://github.com/weirdNox/emacs-gdb.git"
+;                                    :files ("*.el" "*.c" "*.h" "Makefile"))
+;  :init
+;  (fmakunbound 'gdb)
+;  (fmakunbound 'gdb-enable-debug))
 
 
 (load-theme 'monokai)
@@ -181,4 +187,3 @@
 
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-r") 'rtags-rename-symbol)
-
