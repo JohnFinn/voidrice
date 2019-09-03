@@ -40,6 +40,10 @@
 (require 'tex)
 (require 'company-auctex)
 
+(company-auctex-init)
+
+(add-hook 'LaTeX-mode-hook #'company-mode)
+
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 (setq-default py-shell-name "ipython")
