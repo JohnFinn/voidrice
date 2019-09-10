@@ -137,6 +137,10 @@
 (global-set-key (kbd "C-c C-v") 'clipboard-yank)
 (global-set-key (kbd "C-c C-c") 'clipboard-kill-ring-save)
 
+(eval-after-load 'latex '(define-key LaTeX-mode-map (kbd "C-c C-v") 'clipboard-yank))
+(eval-after-load 'latex '(define-key LaTeX-mode-map (kbd "C-c C-c") 'clipboard-kill-ring-save))
+
+
 (global-set-key (kbd "C-@") 'er/expand-region)
 
 (global-set-key (kbd "C-K") 'drag-stuff-down)
@@ -176,6 +180,7 @@
 
 
 (define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
+(define-key python-mode-map (kbd "M-d") 'jedi:goto-definition)
 
 (defun peek-symbol() (interactive)
        (split-window-below -14)
