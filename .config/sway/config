@@ -5,6 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 exec_always --no-startup-id flashfocus
+exec_always albert
 
 ### Variables
 #
@@ -16,7 +17,7 @@ set $down k
 set $up l
 set $right semicolon
 # Your preferred terminal emulator
-set $term st
+set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -66,6 +67,7 @@ bindsym --to-code {
     $mod+Return exec $term
     # Start your launcher
     $mod+d exec $menu
+    $mod+x exec albert show
     $mod+Shift+p exec passmenu
 
     XF86AudioMute	     exec amixer sset Master toggle
@@ -237,22 +239,7 @@ bindsym --to-code $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # status_command while date +'%b %d (%a) %H:%M:%S'; do sleep 1; done
-
-    status_command i3status
-    colors {
-        statusline #ffffff
-        background #323232
-	                   # border background  text
-        inactive_workspace #272727   #272727   #aaaaaa
-        focused_workspace  #4c79b5   #4c79b5   #ffffff
-        active_workspace   #4cb553   #4cb553   #ffffff
-        urgent_workspace   #f73f2e   #f73f2e   #fffff3
-    }
+    swaybar_command waybar
 }
 
 hide_edge_borders both
