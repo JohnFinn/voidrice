@@ -70,7 +70,9 @@ bindsym --to-code {
     $mod+x exec albert show
     $mod+Shift+p exec passmenu -b
 
-    XF86AudioMute	     exec amixer sset Master toggle
+    $mod+p exec mpc toggle
+
+    XF86AudioMute	 exec amixer sset Master toggle
     XF86AudioRaiseVolume exec amixer sset Master 5%+
     XF86AudioLowerVolume exec amixer sset Master 5%-
     XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
