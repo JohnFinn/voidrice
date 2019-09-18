@@ -20,7 +20,7 @@ set $right semicolon
 set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | dmenu -b | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -68,7 +68,7 @@ bindsym --to-code {
     # Start your launcher
     $mod+d exec $menu
     $mod+x exec albert show
-    $mod+Shift+p exec passmenu
+    $mod+Shift+p exec passmenu -b
 
     XF86AudioMute	     exec amixer sset Master toggle
     XF86AudioRaiseVolume exec amixer sset Master 5%+
