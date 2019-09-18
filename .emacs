@@ -1,17 +1,23 @@
 					; todo
-					; peek function: do not create another window
+					; multiple crusors (jump to next occurence; next line)
 					; faster load time
-; do not open  all buffers when loading
-;prevent emacs from adding mess at the end of this file
+
+					;prevent emacs from adding mess at the end of this file
+
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
 (require 'multiple-cursors)
 (require 'expand-region)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -23,30 +29,20 @@
   (add-to-list 'achead:include-directories '"/usr/include")
 )
 
+(add-hook 'c++-mode-hook 'my:ac-c-header-init)
+(add-hook 'c-mode-hook 'my:ac-c-header-init)
 
 (require 'drag-stuff)
 
 (require 'company)
-(require 'company-elisp)
-(require 'company-c-headers)
-(require 'company-rtags)
-;(require 'company-jedi)
-(require 'jedi)
+(require 'company-jedi)
 (require 'company-racer)
+(require 'tex)
+(require 'company-auctex)
 
-(global-company-mode 1)
-(add-to-list 'company-backends 'company-elisp)
-(add-to-list 'company-backends 'company-c-headers)
-(add-to-list 'company-backends 'company-rtags) ; try irony
-;(add-to-list 'company-backends 'company-jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(add-to-list 'company-backends 'company-racer)
-(add-to-list 'company-c-headers-path-system "/usr/include/c++/9.1.0/")
+(company-auctex-init)
 
-(setq company-idle-delay              0.4
-      company-minimum-prefix-length   2
-      )
-
+(add-hook 'LaTeX-mode-hook #'company-mode)
 
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
@@ -88,18 +84,18 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
-(require 'python-mode)
+(company-mode)
 
 
 (require 'quelpa)
 (require 'use-package)
 (require 'quelpa-use-package)
-(use-package gdb-mi :quelpa (gdb-mi :fetcher git
-                                    :url "https://github.com/weirdNox/emacs-gdb.git"
-                                    :files ("*.el" "*.c" "*.h" "Makefile"))
-  :init
-  (fmakunbound 'gdb)
-  (fmakunbound 'gdb-enable-debug))
+;(use-package gdb-mi :quelpa (gdb-mi :fetcher git
+;                                    :url "https://github.com/weirdNox/emacs-gdb.git"
+;                                    :files ("*.el" "*.c" "*.h" "Makefile"))
+;  :init
+;  (fmakunbound 'gdb)
+;  (fmakunbound 'gdb-enable-debug))
 
 
 (load-theme 'monokai)
@@ -136,13 +132,14 @@
 
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-/"))
-(global-unset-key (kbd "M-/"))
-
-(global-set-key (kbd "M-/") 'isearch-forward)
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-c C-v") 'clipboard-yank)
 (global-set-key (kbd "C-c C-c") 'clipboard-kill-ring-save)
+
+(eval-after-load 'latex '(define-key LaTeX-mode-map (kbd "C-c C-v") 'clipboard-yank))
+(eval-after-load 'latex '(define-key LaTeX-mode-map (kbd "C-c C-c") 'clipboard-kill-ring-save))
+
 
 (global-set-key (kbd "C-@") 'er/expand-region)
 
@@ -151,7 +148,6 @@
 (global-set-key (kbd "C-J") 'drag-stuff-left)
 (global-set-key (kbd "C-:") 'drag-stuff-right)
 
-(windmove-default-keybindings 'meta)
 
 (global-unset-key (kbd "M-u"))
 (global-unset-key (kbd "M-r"))
@@ -162,14 +158,12 @@
 (global-unset-key (kbd "M-c"))
 (global-unset-key (kbd "M-j"))
 
-
 (define-key c-mode-base-map (kbd "M-g k") 'rtags-next-match)
 (define-key c-mode-base-map (kbd "M-g l") 'rtags-previous-match)
 (global-set-key (kbd "M-g j") 'previous-buffer)
 (global-set-key (kbd "M-g ;") 'next-buffer)
 (global-set-key (kbd "M-g M-g") 'beginning-of-buffer)
 (global-set-key (kbd "M-g G") 'end-of-buffer)
-(bind-key* (kbd "M-j") 'mc/mark-next-like-this)
 
 
 (define-key c-mode-base-map (kbd "M-u") 'rtags-find-references-at-point)
@@ -184,8 +178,9 @@
 (define-key c-mode-base-map (kbd "M-c d") 'rtags-find-symbol-current-dir)
 (define-key c-mode-base-map (kbd "M-c f") 'rtags-find-symbol-current-file)
 
-(define-key python-mode-map (kbd "M-d") 'jedi:goto-definition)
+
 (define-key rust-mode-map (kbd "M-d") 'racer-find-definition)
+(define-key python-mode-map (kbd "M-d") 'jedi:goto-definition)
 
 (defun peek-symbol() (interactive)
        (split-window-below -14)
