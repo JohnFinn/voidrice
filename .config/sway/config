@@ -71,6 +71,8 @@ bindsym --to-code {
     $mod+Shift+p exec passmenu -b
 
     $mod+p exec mpc toggle
+    $mod+comma exec mpc prev
+    $mod+period exec mpc next
 
     XF86AudioMute	 exec amixer sset Master toggle
     XF86AudioRaiseVolume exec amixer sset Master 5%+
