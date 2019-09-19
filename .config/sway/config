@@ -248,4 +248,4 @@ bar {
 
 hide_edge_borders both
 smart_borders no_gaps
-default_border none
+default_border pixel 2
