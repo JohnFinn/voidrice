@@ -14,3 +14,6 @@ alias								\
 	surf="surf -N"						\
 	ip="ip -color"
 
+open() {
+	xdg-open $@ &
+}

@@ -22,6 +22,13 @@ alias ka="killall" \
 	yta="yt -x -f bestaudio/best" \
 	YT="youtube-viewer" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner"				\
+	ls="ls -hN --color=auto --group-directories-first"	\
+	grep="grep --color=auto"				\
+	diff="diff --color=auto"				\
+	ccat="highlight --out-format=ansi"			\
+	surf="surf -N"						\
+	ip="ip -color"
+
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
