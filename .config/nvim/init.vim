@@ -19,7 +19,11 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
 Plug 'kovetskiy/sxhkd-vim'
+"Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/jsonc.vim'
 call plug#end()
+
+packadd termdebug
 
 set bg=light
 set go=a
@@ -30,13 +34,13 @@ set clipboard=unnamedplus
 highlight LineNr ctermfg=DarkGrey
 
 " more convenient keys
-noremap h ;
 noremap ; l
 noremap l k
 noremap k j
 noremap j h
+noremap h ;
 
-
+map <leader>z :Termdebug<CR>
 
 " Some basics:
 	nnoremap c "_c
@@ -72,17 +76,13 @@ noremap j h
 	nm <leader>q :call ToggleProse()<CR>
 
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
+	map <C-j> <C-w>H
+	map <C-k> <C-w>J
+	map <C-l> <C-w>K
+	map <C-;> <C-w>L
 
 " Check file in shellcheck:
 	map <leader>s :!clear && shellcheck %<CR>
-
-" Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
@@ -123,3 +123,5 @@ noremap j h
 	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 " Update dwmbar when changed.
 	autocmd BufWritePost *dwmbar !killall dwmbar; setsid dwmbar &
+
+	au BufReadPost ~/.config/waybar/config set syntax=jsonc
