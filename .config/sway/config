@@ -81,6 +81,7 @@ bindsym --to-code {
     # TODO this requires sudo to work
     XF86MonBrightnessDown exec brightnessctl set 5%-
     XF86MonBrightnessUp exec brightnessctl set +5%
+    Print exec grim -g "$(slurp)" - | wl-copy
 
     # Kill focused window
     $mod+q kill
@@ -201,7 +202,6 @@ input type:touchpad {
     natural_scroll enabled
     tap enabled
 }
-
 
 #
 # Resizing containers:
