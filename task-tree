@@ -1,0 +1,162 @@
+узнать про экраны ноутов: есть ли такие чтобы было всё различимо на солнце
+	спросить Гошу
+	загуглить
+
+
+software development skills
+	add user to video group to video to allow change brightness
+	чемпионат яндекс по программированию https://yandex.ru/championship/ 14.10-20.10
+	symbolic vs block device
+		block devices bufferises
+		symbolic does not
+			keyboard
+			mouse
+	linux filename hash makes balanced tree ?
+	прийти к маятину на лекцию 25.09 13:30
+		спроситб почему реестр в винде плох и лучше ли файлы в /etc
+	оступить в магистратуру JetBrains
+	   найти примеры задач и подготовиться по математике
+	linux from scratch
+	perfect smartphone os
+		get phone with lineage installed
+
+	learn dbus
+	learn redirect https://unix.stackexchange.com/questions/18899/when-would-you-use-an-additional-file-descriptor
+	ask in stackoverflow about surf -N as BROWSER environment variable
+
+
+	learn termios
+	learn tty
+	duplicate raw socket traffic to localhost maybe using navtap or tap interface
+
+	posix longjump
+
+
+	contribute to voidrice:
+		handle not umounted devices on mod+f10
+	https://github.com/ossu/computer-science
+
+	make own syncronization primitive
+	learn spinlocks
+	stop; dump core image; exec dumped core later
+
+
+	perfect desktop linux for me
+		механизм для автоматической синхронизации файлов не в гите
+			gpg ключи
+			pass пароли
+			.desktop files
+			другие не учтенные сдесь файлы
+			не включать git репозитории
+			не включать cache
+			синхронизация установленных пакетов
+		get text from screen
+		make sympy run in background and connect to it to make start faster
+		script to back up non configs (secret text and binary files)
+		sync files without internet with phone
+		отдельная от браузера система закладок
+		emacs configuration
+			rtags
+			finish hotkey daemon
+		configure sway
+			confugure topbar
+				  разобраться с неравильным отображением символа батарреи шрифтами
+				  nerd fonts - немного зименили ситуацию
+
+	finish Tannenbaum's Operating systems
+      	finish Knuth's The art of programming
+
+    understand lxc ? docker, containers
+	character device
+	lif-character dev network interface
+	subuid (root without root)
+    learn traffic engeneering (job)
+    rust os cource (raspberri py)
+    dinamicly change process available cores
+    networking (oleg arkh's message in whatsup)
+    estimate time to everything to train estimation accuracy
+	learn gproff; valgring callgrind
+
+	*** there exists binary gcd
+
+	владение проектом в целом
+
+
+
+выработать привычку разбираться во всём (почему шнурки держатся, ...)
+выработать привычку рано ложится спать
+
+
+волонтерские международные организации и проекты 'youtu.be/awTKiyDU3rk?t=1078'
+
+
+become fluent in english
+    italkie
+
+1) М.Норбеков "Опыт дурака, или ключ к прозрению", .ePub
+2) А.Уголев "Теория адекватного питания и трофология", .ePub
+3) Г.Шаталова "Здоровье человека" , .ePub
+4) В.Шлахтер "Человек-оружие", .ePub, "Искусство доминировать" , .ePub
+1) Д.Карнеги "Как завоевать друзей и расположить к себе людей" , .ePub
+2) Д.Карнеги "Как перестать беспокоиться и начать жить" , .ePub
+3) М.Литвак "Принцип сперматозоида", .ePub, "Психологическое айкидо", .ePub
+4) А.Эгидес "Психологический рисунок личности" , .ePub
+5) Дж.Клейсон "Самый богатый человек в Вавилоне" , .ePub
+6) Р.Киосаки "Квадрант денежного потока" , .ePub
+
+умение общатся с людьми
+        разобраться как люди устроены внутри
+       		Эгидес
+		    Литвак
+        перечитать карнеги
+        pass torwald's exams in state 3.0
+
+разбираться в торговле, как продать свои навыки - тоже торговля
+	Евгений Котов золотые основы
+
+умение составить хорошее впечатление
+https://youtu.be/_BNVE4epP1Y?t=2106
+
+
+https://www.ops-class.org/
+О ЭМ волнах 10-12 м сама геометрия пространства так устроена - что имелось в виду?
+
+
+финансовая грамотность (ООО ЗАО ПАО как зарегистрировать предприятие, налоги отчётность бумажки, как это всё происходит, системы налогооблажения, как произвести что то, как услуги оказывать .. все это изучать юридические консультации по гражданским вопросам)
+
+invest money
+	библия капиталиста
+itmo
+	Уравление предприятием
+		написать реферат Реферат пишется одним автором на неповторяющуюся в рамках Вашего потока тему.
+			 Историческая справка (30.09)
+		сдать ? докладов
+		доклад (доклад 10-15 мин)
+			найти команду
+			выбрать тему, близкую к теме реферата
+			успеть выбрать её до других
+
+	проектирование систем
+		https://www.notion.so/2019-cb4148cb1f9a463485d9191c6c6e9d92
+		лаба1
+			учёт рабочего времени (19.09)
+	автоматизация
+		одно выступление
+		лабы в парах
+		     подготовить вопросы по первой лабе (20.09)
+	управление требованиями
+		бизнес фишка для карты по истории (23.09)
+	корпоративные системы документооборота
+		задания тут https://vk.com/club186224763
+	web programming
+	web programming курсовик (до 3х человек)
+		придумать тему
+		найти команду
+
+	внедрение информационных систем
+		первая задача 26.09
+			https://docs.google.com/spreadsheets/d/1dFPPmynwRIOn51HsiebfhMHUFK15lFiFJoYANDVy6Dg/edit?usp=sharing
+			можно в группе по 2
+			прислать на почту sgayduk@gsservices.ru
+			если нет ответа, всё норм
+lost+found files
