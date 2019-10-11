@@ -116,7 +116,11 @@ bindsym --to-code {
     $mod+Shift+Down move down
     $mod+Shift+Up move up
     $mod+Shift+Right move right
-
+    # PageUp PageDown Home End
+    $mod+Shift+Home move left 100px
+    $mod+Shift+Next move down 100px
+    $mod+Shift+Prior move up 100px
+    $mod+Shift+End move right 100px
 
     #
     # Workspaces:
@@ -249,3 +253,7 @@ bar {
 hide_edge_borders both
 smart_borders no_gaps
 default_border pixel 2
+
+
+for_window [title="^Dia v0.97.3$"] focus child; resize shrink width 100px
+#for_window [title="^Dia v0.97.3$"] move container to workspace 10
