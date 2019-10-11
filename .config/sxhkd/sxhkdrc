@@ -10,8 +10,6 @@
 # Basic binds
 super + Return
 	$TERMINAL
-~Control_R ; ~Control_R
-	rofi -show drun
 super + w
 	open-text "$(xclip -out -selection clipboard)"
 super + d
@@ -58,8 +56,10 @@ super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + shift + Escape
 	prompt 'Leave Xorg?' 'killall Xorg'
+#super + x
+#	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
 super + x
-	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+	albert toggle
 XF86Launch1
 	xset dpms force off
 XF86TouchpadToggle
