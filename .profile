@@ -9,7 +9,7 @@ export PATH="$PATH:$HOME/.local/bin/"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="termite"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
@@ -21,6 +21,7 @@ export LESSHISTFILE="-"
 export INPUTRC="$HOME/.config/inputrc"
 export ZDOTDIR="$HOME/.config/zsh"
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
+export IPYTHONDIR="$HOME/.config/ipython"
 
 # Other program settings:
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
@@ -40,7 +41,7 @@ mpd >/dev/null 2>&1 &
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
 # Start graphical server if i3 not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && sway
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && sway 2>&1 >> /var/log/wm/sway
 [ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun
 
 # Switch escape and caps if tty:
