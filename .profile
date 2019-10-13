@@ -22,6 +22,7 @@ export INPUTRC="$HOME/.config/inputrc"
 export ZDOTDIR="$HOME/.config/zsh"
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 export IPYTHONDIR="$HOME/.config/ipython"
+export CARGO_HOME="$HOME/.cache/cargo"
 
 # Other program settings:
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"

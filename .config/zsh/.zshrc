@@ -1,6 +1,10 @@
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
+# keep processes running when exiting zsh
+setopt NO_HUP
+setopt NO_CHECK_JOBS
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
