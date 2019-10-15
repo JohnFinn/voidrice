@@ -2,20 +2,11 @@
 alias ka="killall" \
 	mkd="mkdir -pv" \
 	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	calcurse="calcurse -D ~/.config/calcurse" \
 	magit="nvim -c MagitOnly" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove" \
-	xq="xbps-query" \
-	f="$FILE" \
-	g="git" \
-	trem="transmission-remote" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	x="sxiv -ft *" \
-	sdn="sudo shutdown -h now" \
-	gua="git remote | xargs -L1 git push --all" \
-	ls="ls -hN --color=auto --group-directories-first" \
+	trem="transmission-remote" 				\
+	x="sxiv -ft *" 						\
+	sudo="sudo "						\
+	ls="ls -hN --color=auto --group-directories-first" 	\
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
@@ -28,7 +19,11 @@ alias ka="killall" \
 	diff="diff --color=auto"				\
 	ccat="highlight --out-format=ansi"			\
 	surf="surf -N"						\
-	ip="ip -color"
+	ip="ip -color"						\
+	pacman="pacman --color=auto"				\
+	yay="yay --color=auto"					\
+	gitr="git --git-dir=$HOME/.git-rice"			\
+	gitp="git --git-dir=$HOME/.git-personal"
 
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
