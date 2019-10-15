@@ -13,7 +13,7 @@ super + Return
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
 super + x
-	rofi -show-icons -show drun
+	rofi -show-icons -no-fixed-num-lines -show drun
 super + d
 	dmenu_run
 super + r
