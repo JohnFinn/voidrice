@@ -1,5 +1,5 @@
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PS1="%B%{$fg[green]%}%n%{$fg[white]%}@%{$fg[green]%}%M %{$fg[blue]%}%~%{$reset_color%}$%b "
 
 # keep processes running when exiting zsh
 setopt NO_HUP
