@@ -12,6 +12,8 @@ super + Return
 	$TERMINAL
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
+super + x
+	rofi -show-icons -show drun
 super + d
 	dmenu_run
 super + r
