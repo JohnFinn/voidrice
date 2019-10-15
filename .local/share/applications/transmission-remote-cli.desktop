@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=transmission-remote-cli
-Exec=sh -c "$TERMINAL -e transmission-remote-cli"
