@@ -1,5 +1,7 @@
 autoload -U colors && colors
-PS1="%B%{$fg[green]%}%n%{$fg[white]%}@%{$fg[green]%}%M %{$fg[blue]%}%~%{$reset_color%}$%b "
+PROMPT="%B%{$fg[green]%}%n%{$fg[white]%}@%{$fg[green]%}%M %{$fg[blue]%}%~%{$reset_color%}$%b "
+RPROMPT="%{$fg_bold[red]%}%(?..%? )%{$reset_color%}"
+source "$HOME/.config/aliasrc"
 
 # keep processes running when exiting zsh
 setopt NO_HUP
