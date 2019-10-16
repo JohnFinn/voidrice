@@ -124,4 +124,6 @@ map <leader>z :Termdebug<CR>
 " Update dwmbar when changed.
 	autocmd BufWritePost *dwmbar !killall dwmbar; setsid dwmbar &
 
+	autocmd BufWritePost */.config/termite/config !killall -USR1 termite
+
 	au BufReadPost ~/.config/waybar/config set syntax=jsonc
