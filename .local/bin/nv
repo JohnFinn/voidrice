@@ -15,7 +15,13 @@ off()
 	echo -n OFF | sudo tee /proc/acpi/bbswitch
 }
 
+run()
+{
+	xinit /etc/X11/xinit/nvidia-xinitrc -- :0 vt1 -nolisten tcp -br -config nvidia-xorg.conf -configdir nvidia-xorg.conf.d
+}
+
 case $1 in
 	on) on ;;
 	off) off ;;
+	run) run ;;
 esac
