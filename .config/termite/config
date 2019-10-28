@@ -57,7 +57,7 @@ scrollback_lines = 10000
 highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #282a36
+color0 = #232729
 color1 = #705050
 color2 = #60b48a
 color3 = #dfaf8f
