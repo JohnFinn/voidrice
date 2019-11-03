@@ -16,16 +16,11 @@ setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Es
 # Properties button extra Mod/Escape
 xmodmap -e 'keycode 135 = Super_R' &
 
-# This loop will run the `refbar` script to refresh the statusbar whenever a
-# command changes the music player's status.
-while pgrep -x mpd; do
-	mpc idle >/dev/null 2>&1
-	refbar
-done &
-
 # tap to click
 # and natural scrolling
+# disable touchpad while typing
 synclient TapButton1=1		\
-	  VertScrollDelta=-50
+	  VertScrollDelta=-50	\
+	  PalmDetect=1
 
 notify-send "Welcome to LARBS on Void with dwm" "Press super+F1 for the help menu." # LARBSWELCOME
