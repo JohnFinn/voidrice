@@ -22,6 +22,8 @@ xmodmap -e 'keycode 135 = Super_R' &
 synclient TapButton1=1		\
 	  TapButton2=3		\
 	  VertScrollDelta=-50	\
-	  PalmDetect=1
+	  PalmDetect=1		\
+	  PalmMinWidth=255	\
+	  PalmMinZ=15
 
 notify-send "Welcome to LARBS on Void with dwm" "Press super+F1 for the help menu." # LARBSWELCOME
