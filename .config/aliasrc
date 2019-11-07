@@ -21,9 +21,7 @@ alias ka="killall" \
 	surf="surf -N"						\
 	ip="ip -color"						\
 	pacman="pacman --color=auto"				\
-	yay="yay --color=auto"					\
-	gitr="git --git-dir=$HOME/.git-rice"			\
-	gitp="git --git-dir=$HOME/.git-personal"
+	yay="yay --color=auto"
 
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
