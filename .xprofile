@@ -20,6 +20,7 @@ xmodmap -e 'keycode 135 = Super_R' &
 # and natural scrolling
 # disable touchpad while typing
 synclient TapButton1=1		\
+	  TapButton2=3		\
 	  VertScrollDelta=-50	\
 	  PalmDetect=1
 
