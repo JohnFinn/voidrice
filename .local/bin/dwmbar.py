@@ -40,7 +40,7 @@ async def volume():
         # pactl returns many lines at once, so it is smarter to wait for all of them
         # TODO bug
         #   `amixer get Master` makes `pactl subscribe` produce extra lines
-        #   this for loop is a workaround to this behaviour. It skips this lines
+        #   this for loop is a workaround to this behaviour. It skips these lines
         for i in range(8):
             await pactl.stdout.readline()
 
