@@ -40,10 +40,10 @@ super + shift + w
 	$BROWSER
 
 # Et cetera...
-shift + Alt_{L,R}
-	layout-toggle; refbar
-alt + Shift_{R,L}
-	layout-toggle; refbar
+#shift + Alt_{L,R}
+#	layout-toggle; refbar
+#alt + Shift_{R,L}
+#	layout-toggle; refbar
 super + grave
 	dmenuunicode
 super + Scroll_Lock
