@@ -7,6 +7,7 @@ import datetime
 import asyncio
 import time
 import re
+import os
 
 
 delimiter = ' | '
@@ -43,6 +44,7 @@ async def volume():
         #   this for loop is a workaround to this behaviour. It skips these lines
         for i in range(8):
             await pactl.stdout.readline()
+    await pactl.wait()
 
 
 class Speaker:
@@ -66,16 +68,44 @@ def get_volume() -> Iterable[Tuple[int, bool]]:
         state = state_str == '[on]'
         yield Speaker(volume, state)
 
-# @block
-# async def battery():
-#     # dbus-monitor --system
-#     pass
+@block
+async def battery():
+    # TODO make this react faster
+    BAT0 = Battery('/sys/class/power_supply/BAT0')
+    upower_monitor = await asyncio.create_subprocess_exec('upower', '--monitor', stdout=asyncio.subprocess.PIPE)
+    while True:
+        status = BAT0.status()
+        status_signs = {'Charging': '📈', 'Discharging': '📉'}
+        status_sign = status_signs.get(status, status)
+        now_percent = BAT0.energy_now() * 100 / BAT0.energy_full_design()
+        yield f'🔋 {status_sign} {int(now_percent)}'
+        await upower_monitor.stdout.readline()
+
+    await upower_monitor.wait()
+
+class Battery:
+
+    def __init__(self, path):
+        assert os.path.isdir(path)
+        self.path = path
+
+    def status(self) -> str:
+        with open(os.path.join(self.path, 'status')) as file:
+            return file.read().strip()
+
+    def energy_now(self) -> int:
+        with open(os.path.join(self.path, 'energy_now')) as file:
+            return int(file.read())
+
+    def energy_full_design(self) -> int:
+        with open(os.path.join(self.path, 'energy_full_design')) as file:
+            return int(file.read())
 
 @block
 async def keyboard_layout():
     while True:
         yield current_keyboard_layout()
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(1)
 
 @block
 async def time1():
@@ -84,13 +114,11 @@ async def time1():
         await asyncio.sleep(60)
 
 
-def current_keyboard_layout():
-    setxkbmap = subprocess.Popen(['setxkbmap', '-query'], stdout=subprocess.PIPE)
-    stdout, stderr = setxkbmap.communicate()
-    setxkbmap.wait()
-    regex = re.compile('layout:\s*([a-z]{2})')
-    res, = regex.finditer(stdout.decode(), re.MULTILINE).__next__().groups()
-    return res
+def current_keyboard_layout() -> str:
+    xkblayout = subprocess.Popen(['xkblayout'], stdout=subprocess.PIPE)
+    stdout, stderr = xkblayout.communicate()
+    xkblayout.wait()
+    return stdout.rstrip().decode()
 
 
 
