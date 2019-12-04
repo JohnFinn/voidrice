@@ -75,7 +75,7 @@ async def battery():
     upower_monitor = await asyncio.create_subprocess_exec('upower', '--monitor', stdout=asyncio.subprocess.PIPE)
     while True:
         status = BAT0.status()
-        status_signs = {'Charging': '📈', 'Discharging': '📉'}
+        status_signs = {'Charging': '📈', 'Discharging': '📉', 'Unknown': '?', 'Full': 'voll'}
         status_sign = status_signs.get(status, status)
         now_percent = BAT0.energy_now() * 100 / BAT0.energy_full_design()
         yield f'🔋 {status_sign} {int(now_percent)}'
@@ -100,6 +100,37 @@ class Battery:
     def energy_full_design(self) -> int:
         with open(os.path.join(self.path, 'energy_full_design')) as file:
             return int(file.read())
+
+@block
+async def wifi():
+    iw = Iwconfig('wlp2s0')
+    dbus_monitor = await asyncio.create_subprocess_exec('dbus-monitor', '--system', 'sender=org.freedesktop.NetworkManager, path=/org/freedesktop/NetworkManager', stdout=asyncio.subprocess.PIPE)
+    while True:
+        try:
+            yield f'📶 {iw.ESSID} {int(100 * iw.link_quality())}'
+        except IndexError:
+            yield f'📶 ...'
+        while b'signal' not in await dbus_monitor.stdout.readline():
+            pass
+
+class Iwconfig:
+
+    def __init__(self, name):
+        self.name = name
+    
+    def _get(self):
+        iwconfig = subprocess.Popen(['iwconfig', self.name], stdout=subprocess.PIPE)
+        stdout, stderr = iwconfig.communicate()
+        iwconfig.wait()
+        return stdout.strip().decode()
+    
+    @property
+    def ESSID(self):
+        return re.findall('ESSID:"(.*)"', self._get())[0]
+
+    def link_quality(self):
+        quality = int(re.findall('Link Quality=(\d*)/70', self._get())[0])
+        return quality / 70
 
 @block
 async def keyboard_layout():
