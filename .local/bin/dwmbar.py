@@ -112,6 +112,7 @@ async def wifi():
             yield f'📶 ...'
         while b'signal' not in await dbus_monitor.stdout.readline():
             pass
+    await dbus_monitor.wait()
 
 class Iwconfig:
 
