@@ -12,6 +12,31 @@ super + Return
 	$TERMINAL
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
+super + {k,l}
+	bspc node --focus {next,prev}
+super + shift + {k,l}
+	bspc node --swap {next,prev}
+super + q
+	bspc node --close
+super + f
+# TODO make it faster
+	if bspc query --nodes --node focused.fullscreen; then 					\
+		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState');	\
+	else 											\
+		bspc node --state fullscreen;	 						\
+	fi
+super + shift + space
+	if bspc query --nodes --node focused.floating; then					\
+		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState');	\
+	else 											\
+		bspc node --state floating;							\
+	fi
+super + t
+	if bspc query --nodes --node focused.tiled; then					\
+		bspc node --state pseudo_tiled;							\
+	else											\
+		bspc node --state tiled;							\
+	fi
 super + x
 	rofi -show-icons -no-fixed-num-lines -show drun
 super + d

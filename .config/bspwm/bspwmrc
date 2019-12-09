@@ -1,0 +1,3 @@
+#!/bin/sh
+bspc config honor_size_hints true
+
