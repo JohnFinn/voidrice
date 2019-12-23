@@ -57,7 +57,8 @@ module-margin-right = 1
 font-0 = mono:pixelsize=9;1
 font-1 = Inconsolata Nerd Font:size=8;1
 font-2 = Noto Color Emoji:scale=10:style=Regular;2
-font-3 = Symbola:pixelsize=9;1
+font-3 = FontAwesome:style=Regular
+;font-3 = Symbola:pixelsize=9;1
 
 
 ; Other modules: xkeyboard filesystem xbacklight backlight-acpi cpu memory temperature powermenu weather
@@ -229,7 +230,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = 📶 <label-connected>
+format-connected =  <label-connected>
 ; format-connected-underline = ${colors.darkmagenta}
 label-connected = %essid% %signal% ⬇ %downspeed% ⬆ %upspeed%
 
@@ -287,10 +288,10 @@ label = %time%
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
-label-volume = 
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.gray}
 label-muted = muted
 
@@ -329,11 +330,11 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.gray}
 ; format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = [    ]
-ramp-capacity-1 = [=   ]
-ramp-capacity-2 = [==  ]
-ramp-capacity-3 = [=== ]
-ramp-capacity-4 = [====]
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1-foreground = ${colors.red}
 ramp-capacity-2-foreground = ${colors.yellow}
@@ -342,11 +343,11 @@ ramp-capacity-4-foreground = ${colors.green}
 
 
 
-animation-charging-0 = [    ]
-animation-charging-1 = [=   ]
-animation-charging-2 = [==  ]
-animation-charging-3 = [=== ]
-animation-charging-4 = [====]
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 500
 
