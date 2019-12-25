@@ -1,6 +1,7 @@
 linux-firmware
 alsa-utils
 light
+fzf
 
 xf86-input-synaptics
 radare2
@@ -21,7 +22,8 @@ qemu
 
 
 osx-arc-white-git
-
+# todo passmenu gui passphrase
 mpd
 mpc
 mpv
+rofi

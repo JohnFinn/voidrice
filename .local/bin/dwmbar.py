@@ -35,9 +35,14 @@ def block(function):
 
 @block
 async def volume():
+    status_signs = {
+        'analog-output-speaker': '🔊',
+        'analog-output-headphones': '🎧',
+        'headset-output': '🎧🎙'
+    }
     pactl = await asyncio.create_subprocess_exec('pactl', 'subscribe', stdout=asyncio.subprocess.PIPE)
     while True:
-        yield ' '.join(map(str, get_volume()))
+        yield ','.join(map(lambda port: status_signs.get(port, port), pactl_active_ports())) + ' ' +  ' '.join(map(str, get_volume()))
         # pactl returns many lines at once, so it is smarter to wait for all of them
         # TODO bug
         #   `amixer get Master` makes `pactl subscribe` produce extra lines
@@ -46,6 +51,11 @@ async def volume():
             await pactl.stdout.readline()
     await pactl.wait()
 
+def pactl_active_ports():
+    pactl = subprocess.Popen(['pactl', 'list', 'sinks'], stdout=subprocess.PIPE)
+    stdout, stderr = pactl.communicate()
+    pactl.wait()
+    return re.findall('Active Port: (.*)', stdout.decode())
 
 class Speaker:
 
@@ -72,10 +82,10 @@ def get_volume() -> Iterable[Tuple[int, bool]]:
 async def battery():
     # TODO make this react faster
     BAT0 = Battery('/sys/class/power_supply/BAT0')
+    status_signs = {'Charging': '📈', 'Discharging': '📉', 'Unknown': '?', 'Full': 'voll'}
     upower_monitor = await asyncio.create_subprocess_exec('upower', '--monitor', stdout=asyncio.subprocess.PIPE)
     while True:
         status = BAT0.status()
-        status_signs = {'Charging': '📈', 'Discharging': '📉', 'Unknown': '?', 'Full': 'voll'}
         status_sign = status_signs.get(status, status)
         now_percent = BAT0.energy_now() * 100 / BAT0.energy_full_design()
         yield f'🔋 {status_sign} {int(now_percent)}'
