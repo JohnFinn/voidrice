@@ -10,4 +10,6 @@
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec dwm
+#exec startplasma-x11
+#exec gnome-session
+exec bspwm
