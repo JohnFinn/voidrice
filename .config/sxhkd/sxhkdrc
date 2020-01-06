@@ -99,7 +99,13 @@ XF86Touchpad{Off,On}
 # Recording
 # Take screenshot
 Print
-	maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png";	\
+	echo -n "$name" | xclip -selection clipboard -in;	\
+	maim "$name"
+super + Print
+	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png";	\
+	echo -n "$name" | xclip -selection clipboard -in;	\
+	maim --select "$name"
 # Pick screenshot type
 shift + Print
 	maimpick
