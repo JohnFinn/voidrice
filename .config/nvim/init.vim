@@ -8,6 +8,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -19,9 +20,54 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
 Plug 'kovetskiy/sxhkd-vim'
-"Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/jsonc.vim'
+Plug 'dag/vim-fish'
+Plug 'rhysd/vim-clang-format'
+Plug 'ale/clangtidy.vim'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+
+nnoremap <M-f> :Files<CR>
+
+set completeopt=longest,menuone
+let g:coc_global_extensions = [
+\	'coc-python',
+\	'coc-json',
+\	'coc-clangd'
+\]
 
 packadd termdebug
 
@@ -41,6 +87,13 @@ noremap j h
 noremap h ;
 
 map <leader>z :Termdebug<CR>
+
+
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
+
 
 " Some basics:
 	nnoremap c "_c

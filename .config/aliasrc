@@ -1,27 +1,29 @@
 #!/bin/sh
-alias ka="killall" \
-	mkd="mkdir -pv" \
-	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-	magit="nvim -c MagitOnly" \
-	trem="transmission-remote" 				\
-	x="sxiv -ft *" 						\
-	sudo="sudo "						\
-	ls="ls -hN --color=auto --group-directories-first" 	\
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
-	yta="yt -x -f bestaudio/best" \
-	YT="youtube-viewer" \
-	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
-	ffmpeg="ffmpeg -hide_banner"				\
-	ls="ls -hN --color=auto --group-directories-first"	\
-	grep="grep --color=auto"				\
-	diff="diff --color=auto"				\
-	ccat="highlight --out-format=ansi"			\
-	surf="surf -N"						\
-	ip="ip -color"						\
-	pacman="pacman --color=auto"				\
-	yay="yay --color=auto"
-
+alias ka="killall"
+alias mkd="mkdir -pv"
+alias vim="nvim"
+#	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
+alias magit="nvim -c MagitOnly"
+alias trem="transmission-remote"
+alias x="sxiv -ft *"
+alias sudo="sudo "
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
+alias yta="yt -x -f bestaudio/best"
+alias YT="youtube-viewer"
+alias ref="shortcuts >/dev/null; source ~/.config/shortcutrc"
+alias ffmpeg="ffmpeg -hide_banner"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias ccat="highlight --out-format=ansi"
+alias surf="surf -N"
+alias ip="ip -color"
+alias pacman="pacman --color=auto"
+alias yay="yay --color=auto"
+alias rm="rm -i"
+alias mv="mv -i"
 
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.
