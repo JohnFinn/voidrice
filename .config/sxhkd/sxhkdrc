@@ -12,16 +12,24 @@ super + Return
 	$TERMINAL
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
-super + {1,2,3,4,5,6,7,8,9,0}
-	bspc desktop --focus ^{1,2,3,4,5,6,7,8,9,10}
-super + shift + {1,2,3,4,5,6,7,8,9,0}
-	bspc node --to-desktop ^{1,2,3,4,5,6,7,8,9,10}
-super + {k,l}
-	bspc node --focus {next,prev}
+super + {j,k,l,semicolon}
+	bspc node --focus {west,next,prev,east}
 super + shift + {k,l}
-	bspc node --swap {next,prev}
+	if bspc query --nodes --node focused.floating; then					\
+		bspc node focused --move {0 16, 0 -16};						\
+	else											\
+		bspc node --swap {next,prev};							\
+	fi
 super + shift + {j,semicolon}
-	bspc node --to-node {west,east}
+	if bspc query --nodes --node focused.floating; then					\
+		bspc node focused --move {-16 0, 16 0};						\
+	else											\
+		bspc node --to-node {west,east};						\
+	fi
+super + alt + {j,k,l,semicolon}
+	bspc node focused --resize {left -1 0, bottom 0 1, top 0 -1, right 1 0}
+super + alt + ctrl + {j,k,l,semicolon}
+	bspc node focused --resize {left -64 0, bottom 0 64, top 0 -64, right 64 0}
 super + q
 	bspc node --close
 super + f
@@ -60,7 +68,7 @@ super + s
 super + c
 	$TERMINAL -e calcurse -D ~/.config/calcurse
 super + shift + p
-	passmenu
+	passmenu -fn a
 super + shift + a
 	$TERMINAL -e alsamixer; refbar
 super + shift + c
@@ -208,3 +216,7 @@ super + {F9,F10}
 	{dmenumount,dmenuumount}
 super + F12
 	$TERMINAL -e wpa_cli
+# I've put it here, because it breaks sytax highlighting
+super + {_,shift} + {1-9,0}
+	bspc {desktop --focus,node --to-desktop} ^{1-9,10}
+
