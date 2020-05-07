@@ -5,35 +5,41 @@ These are the dotfiles deployed by [LARBS](https://larbs.xyz) and as seen on [my
 - Very useful scripts are in `~/.local/bin/`
 - Settings for:
 	- vim/nvim (text editor)
-	- lf (file browser)
+	- zsh (shell)
+	- i3wm/i3-gaps (window manager)
+	- i3blocks (status bar)
+	- sxhkd (general key binder)
+	- ranger (file manager)
+	- lf (file manager)
 	- mpd/ncmpcpp (music)
 	- sxiv (image/gif viewer)
 	- mpv (video player)
+	- calcurse (calendar program)
+	- tmux
+	- other stuff like xdg default programs, inputrc and more, etc.
 - I try to minimize what's directly in `~` so:
 	- All configs that can be in `~/.config/` are.
-	- Some environmental variables have been set in `~/.profile` to move configs into `~/.config/`
-- Bookmarks in text files used by various scripts
-	- Web bookmarks in `~/.config/bookmarks`
+	- Some environmental variables have been set in `~/.zprofile` to move configs into `~/.config/`
+- Bookmarks in text files used by various scripts (like `~/.local/bin/shortcuts`)
 	- File bookmarks in `~/.config/files`
 	- Directory bookmarks in `~/.config/directories`
 
-## What's not here
+## Want even more?
 
 My setup is pretty modular nowadays.
-I use several suckless program that are meant to be configured and compiled by the user and I also have separate repos for some other things.
+I use several suckless programs that are meant to be configured and compiled by the user and I also have separate repos for some other things.
 Check out their links:
 
-- [dwm](https://github.com/lukesmithxyz/dwm) (the window manager)
-- [st](https://github.com/lukesmithxyz/st) (the terminal emulator)
+- [dwm](https://github.com/lukesmithxyz/dwm) (the window manager I usually use now which is fully compatible with this repo)
+- [st](https://github.com/lukesmithxyz/st) (the terminal emulator assumed to be used by these dotfiles)
 - [mutt-wizard (`mw`)](https://github.com/lukesmithxyz/mutt-wizard) - (a terminal-based email system that can store your mail offline without effort)
-
-## What is sort of here
-
-**If you want the i3 configs, they are in this repo, but in the `archi3` branch.** I don't really update it nowadays, but they're still here. Some other programs I no longer use, like vifm are there too.
-
-You might've come here from a review I've done on a program and want my configuration files for that program.
-I tend to remove configs for programs I don't use to keep LARBS small. For those programs, they will be in the git history if you want to go searching. Please don't email me for configs. I tend to delete old stuff on my local machines so it's no easier for me.
 
 ## Install these dotfiles
 
-Use [LARBS](https://larbs.xyz) or clone the repo files directly to your home directory and install [the prerequisite programs](https://github.com/LukeSmithxyz/LARBS/blob/master/voiddwm/vprogs.csv).
+Use [LARBS](https://larbs.xyz) to autoinstall everything:
+
+```
+curl -LO larbs.xyz/larbs.sh
+```
+
+or clone the repo files directly to your home directory and install [the prerequisite programs](https://github.com/LukeSmithxyz/LARBS/blob/master/progs.csv) or [those required for the i3 setup](https://github.com/LukeSmithxyz/LARBS/blob/master/legacy.csv).

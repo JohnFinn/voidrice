@@ -1,20 +1,25 @@
 #!/bin/sh
-alias ka="killall"
-alias mkd="mkdir -pv"
 alias vim="nvim"
-#	mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)" \
-alias magit="nvim -c MagitOnly"
-alias trem="transmission-remote"
-alias x="sxiv -ft *"
+alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias sudo="sudo "
+alias ref="shortcuts >/dev/null; source ~/.config/shortcutrc"
+
+# Use neovim for vim if present.
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias mkd="mkdir -pv"
+alias yt="youtube-dl --add-metadata -i"
+alias yta="yt -x -f bestaudio/best"
+alias ffmpeg="ffmpeg -hide_banner"
+
+# Colorize commands when possible.
 alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
-alias yta="yt -x -f bestaudio/best"
-alias YT="youtube-viewer"
-alias ref="shortcuts >/dev/null; source ~/.config/shortcutrc"
-alias ffmpeg="ffmpeg -hide_banner"
 alias ls="ls -hN --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
@@ -23,7 +28,4 @@ alias surf="surf -N"
 alias ip="ip -color"
 alias pacman="pacman --color=auto"
 alias yay="yay --color=auto"
-alias rm="rm -I"
-alias mv="mv -i"
 
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.

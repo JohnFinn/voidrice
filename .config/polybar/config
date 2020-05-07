@@ -180,7 +180,11 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 type = internal/mpd
 format-online = <label-song>  <label-time>
 
+<<<<<<< HEAD
 click-left = st -e ncmpcpp
+=======
+click-left = $TERMINAL -e ncmpcpp
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 click-right = mpc toggle
 
 label-song =  %artist% - %title%
@@ -214,17 +218,28 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
+<<<<<<< HEAD
 format-prefix = " "
 format-prefix-foreground = ${colors.gray}
 ; format-underline = ${colors.red}
 label = %percentage-sum:4%%
+=======
+format-prefix = "🌡 "
+format-prefix-foreground = ${colors.gray}
+format-underline = ${colors.red}
+label = %percentage%%
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = "🧠 "
 format-prefix-foreground = ${colors.gray}
+<<<<<<< HEAD
 ; format-underline = ${colors.darkcyan}
+=======
+format-underline = ${colors.darkcyan}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 label = %percentage_used%%
 
 [module/wlan]
@@ -232,6 +247,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 
+<<<<<<< HEAD
 format-connected =  <label-connected>
 ; format-connected-underline = ${colors.darkmagenta}
 label-connected = %essid% %signal% ⬇ %downspeed:8% ⬆ %upspeed:8%
@@ -239,6 +255,15 @@ label-connected = %essid% %signal% ⬇ %downspeed:8% ⬆ %upspeed:8%
 ;format-disconnected =
 format-disconnected = <label-disconnected>
 ; format-disconnected-underline = ${self.format-connected-underline}
+=======
+format-connected = 直 <label-connected>
+format-connected-underline = ${colors.darkmagenta}
+label-connected = %essid%
+
+;format-disconnected =
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 ;label-disconnected = %ifname% disconnected
 label-disconnected = 睊no wifi
 label-disconnected-foreground = ${colors.gray}
@@ -273,27 +298,46 @@ type = internal/date
 interval = 60
 
 date = "%Y %b %d (%a)"
+<<<<<<< HEAD
 time = "%H:%M"
+=======
+time = "%I:%M%p"
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 # If you're not living in a country where AM and PM is used you can add -alt to the time above this line and comment it using ;, then you can remove the -alt to the time under this line and uncomment it.
 ;time-alt = " at %H:%M"
 ;time-alt = %H:%M:%S
 ;time-alt = %H:%M:%S
 
+<<<<<<< HEAD
 ; format-prefix = " "
 format-prefix-foreground = ${colors.gray}
 ; format-underline = ${colors.blue}
 
 label = %time%
+=======
+format-prefix = " "
+format-prefix-foreground = ${colors.gray}
+format-underline = ${colors.blue}
+
+label = %date% %time%
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 [module/volume]
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
+<<<<<<< HEAD
 label-volume = 
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
+=======
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 format-muted-foreground = ${colors.gray}
 label-muted = muted
 
@@ -322,6 +366,7 @@ full-at = 98
 
 ;format-charging = Charging... <label-charging>
 format-charging = <animation-charging> <label-charging>
+<<<<<<< HEAD
 ; format-charging-underline = ${colors.darkyellow}
 
 ; format-discharging = <label-discharging>
@@ -331,12 +376,24 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.gray}
 ; format-full-underline = ${self.format-charging-underline}
+=======
+format-charging-underline = ${colors.darkyellow}
+
+;format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.gray}
+format-full-underline = ${self.format-charging-underline}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+<<<<<<< HEAD
 ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-1-foreground = ${colors.red}
 ramp-capacity-2-foreground = ${colors.yellow}
@@ -344,17 +401,25 @@ ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4-foreground = ${colors.green}
 
 
+=======
+ramp-capacity-foreground = ${colors.gray}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
+<<<<<<< HEAD
 animation-charging-foreground = ${colors.green}
+=======
+animation-charging-foreground = ${colors.gray}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 animation-charging-framerate = 500
 
 [module/temperature]
 type = internal/temperature
+<<<<<<< HEAD
 thermal-zone = 4
 warn-temperature = 60
 
@@ -362,6 +427,15 @@ format = <ramp> <label>
 ; format-underline = ${colors.red}
 format-warn = <ramp> <label-warn>
 ; format-warn-underline = ${self.format-underline}
+=======
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.red}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
 
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -409,5 +483,10 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
+<<<<<<< HEAD
 margin-top = 0
 margin-bottom = 0
+=======
+margin-top = 5
+margin-bottom = 5
+>>>>>>> baad9e0136890d8b894b0b0562466c112c5bcc43
