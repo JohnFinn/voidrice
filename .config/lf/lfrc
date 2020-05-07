@@ -9,6 +9,13 @@ set scrolloff 10
 
 # cmds/functions
 cmd open ${{
+    case $f in
+	*.docx)
+		libreoffice $f &
+		return
+		;;
+	*) ;;
+    esac
     case $(file --mime-type $f -b) in
     	text/troff) man ./ $f;;
         text/*) $EDITOR $fx;;

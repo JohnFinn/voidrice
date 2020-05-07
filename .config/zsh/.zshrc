@@ -12,6 +12,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
+#plugins=(zsh-completions)
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -32,6 +33,12 @@ bindkey '^e' edit-command-line
 
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# fix slow git autocompletion
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
 
 # Need a tweak in arch for home and end keys to work properly
 # (as well as insert, delete, pageup, pagedown, perhaps others...)

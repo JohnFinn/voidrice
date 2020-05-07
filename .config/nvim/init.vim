@@ -61,6 +61,7 @@ nmap ++ <plug>NERDCommenterToggle
 
 
 nnoremap <M-f> :Files<CR>
+nnoremap <M-s> :Ag<CR>
 
 set completeopt=longest,menuone
 let g:coc_global_extensions = [

@@ -68,7 +68,7 @@ super + s
 super + c
 	$TERMINAL -e calcurse -D ~/.config/calcurse
 super + shift + p
-	passmenu -fn a
+	passmenu
 super + shift + a
 	$TERMINAL -e alsamixer; refbar
 super + shift + c
@@ -142,18 +142,18 @@ super + {_,shift +} bracketleft
 	mpc seek -{10,120}
 # Increase volume
 super + {equal,plus}
-	amixer sset Master {5,15}%+; refbar
+	amixer sset Master {5,15}%+
 # Decrease volume
 super {_,shift +} + minus
-	amixer sset Master {5,15}%-; refbar
+	amixer sset Master {5,15}%-
 super + shift + m
-	amixer sset Master toggle; refbar
+	amixer sset Master toggle
 
 # Audiokeys
 XF86AudioMute
-	amixer sset Master toggle; refbar
+	amixer sset Master toggle
 XF86Audio{Raise,Lower}Volume
-	amixer sset Master 5%{+,-}; refbar
+	amixer sset Master 5%{+,-}
 XF86MonBrightness{Up,Down}
 	light -{A,U} 1
 XF86Audio{Next,Prev}

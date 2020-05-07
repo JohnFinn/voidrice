@@ -69,6 +69,7 @@ bindsym --to-code {
     $mod+d exec $menu
     $mod+x exec albert show
     $mod+Shift+p exec passmenu -b
+    $mod+grave exec dmenuunicode
 
     $mod+p exec mpc toggle
     $mod+comma exec mpc prev

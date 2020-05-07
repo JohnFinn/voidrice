@@ -103,7 +103,8 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
+        // "format-icons": ["", "", "", "", ""],
+	"format-icons": ["🔋"],
         "tooltip":false
     },
     "battery#bat2": {
@@ -124,8 +125,10 @@
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "🔇  {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        // "format-source": "{volume}% ",
+        "format-source": "{volume}% 🎙",
+        // "format-source-muted": "",
+        "format-source-muted": "🎙",
         "format-icons": {
             "headphones": "",
             "handsfree": "",

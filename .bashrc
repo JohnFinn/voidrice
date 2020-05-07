@@ -6,13 +6,6 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput se
 
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 
-alias								\
-	ls="ls -hN --color=auto --group-directories-first"	\
-	grep="grep --color=auto"				\
-	diff="diff --color=auto"				\
-	ccat="highlight --out-format=ansi"			\
-	surf="surf -N"						\
-	ip="ip -color"
 
 open() {
 	xdg-open $@ &

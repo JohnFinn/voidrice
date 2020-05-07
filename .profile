@@ -1,6 +1,8 @@
 #!/bin/sh
 # intellij proper displaying in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARTENTING=1
+
 
 # Profile file. Runs on login. Environmental variables are set here.
 
@@ -9,10 +11,12 @@ export PATH="$PATH:$HOME/.local/bin/"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="termite"
-export BROWSER="firefox"
+export TERMINAL="alacritty"
+export BROWSER="brave"
 export READER="zathura"
 export FILE="lf"
+
+export SXHKD_SHELL="/bin/sh"
 
 # ~/ Clean-up:
 export NOTMUCH_CONFIG="$HOME/.config/notmuch-config"
@@ -46,4 +50,4 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 [ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.local/share/larbs/ttymaps.kmap 2>/dev/null
+# sudo -n loadkeys ~/.local/share/larbs/ttymaps.kmap 2>/dev/null
