@@ -13,18 +13,19 @@ super + Return
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
 super + {j,k,l,semicolon}
-	bspc node --focus {west,next,prev,east}
+	bspc node --focus {west,next,prev,east}.local;						\
+	echo focusstack{+,-,+,-} > /tmp/dwm.fifo
 super + shift + {k,l}
 	if bspc query --nodes --node focused.floating; then					\
 		bspc node focused --move {0 16, 0 -16};						\
 	else											\
-		bspc node --swap {next,prev};							\
+		bspc node --swap {next,prev}.local;						\
 	fi
 super + shift + {j,semicolon}
 	if bspc query --nodes --node focused.floating; then					\
 		bspc node focused --move {-16 0, 16 0};						\
 	else											\
-		bspc node --to-node {west,east};						\
+		bspc node --to-node {west,east}.local;						\
 	fi
 super + alt + {j,k,l,semicolon}
 	bspc node focused --resize {left -1 0, bottom 0 1, top 0 -1, right 1 0}
@@ -52,7 +53,7 @@ super + t
 		bspc node --state tiled;							\
 	fi
 super + x
-	rofi -show-icons -no-fixed-num-lines -show drun
+	rofi -show-icons -show drun
 super + d
 	dmenu_run
 super + r
@@ -105,10 +106,8 @@ XF86TouchpadToggle
 	(synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null || synclient TouchpadOff=1
 XF86Touchpad{Off,On}
 	synclient TouchpadOff={1,0}
-XF86MonBrightnessDown
-	xbacklight -dec 15
-XF86MonBrightnessUp
-	xbacklight -inc 15
+XF86MonBrightness{Up,Down}
+	light -{A,U} 15
 
 # Recording
 # Take screenshot
@@ -225,4 +224,3 @@ super + F12
 # I've put it here, because it breaks sytax highlighting
 super + {_,shift} + {1-9,0}
 	bspc {desktop --focus,node --to-desktop} ^{1-9,10}
-
