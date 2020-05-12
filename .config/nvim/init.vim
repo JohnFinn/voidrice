@@ -1,11 +1,11 @@
 let mapleader =","
 
-if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
-endif
+"if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	"echo "Downloading junegunn/vim-plug to manage plugins..."
+	"silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	"silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	"autocmd VimEnter * PlugInstall
+"endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -78,7 +78,6 @@ set mouse=a
 set nohlsearch
 set clipboard=unnamedplus
 
-highlight LineNr ctermfg=DarkGrey
 
 " more convenient keys
 noremap ; l
@@ -88,13 +87,6 @@ noremap j h
 noremap h ;
 
 map <leader>z :Termdebug<CR>
-
-
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-
-
 
 " Some basics:
 	nnoremap c "_c
@@ -187,3 +179,10 @@ colorscheme gruvbox
 	autocmd BufWritePost */.config/termite/config !killall -USR1 termite
 
 	au BufReadPost ~/.config/waybar/config set syntax=jsonc
+
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
+highlight LineNr ctermfg=DarkGrey
+highlight Visual cterm=NONE ctermbg=DarkGrey
