@@ -29,6 +29,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'lervag/vimtex'
 call plug#end()
 
 " Use <c-space> for trigger completion.
@@ -67,12 +68,22 @@ set completeopt=longest,menuone
 let g:coc_global_extensions = [
 \	'coc-python',
 \	'coc-json',
-\	'coc-clangd'
+\	'coc-clangd',
+\	'coc-vimtex'
 \]
 
 packadd termdebug
 
-set bg=light
+
+" tabstop:          Width of tab character
+" softtabstop:      Fine tunes the amount of white space to be added
+" shiftwidth        Determines the amount of whitespace to add in normal mode
+" expandtab:        When this option is enabled, vi will use spaces instead of tabs
+set tabstop     =4
+set softtabstop =4
+set shiftwidth  =4
+set expandtab
+
 set go=a
 set mouse=a
 set nohlsearch
