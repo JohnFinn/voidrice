@@ -12,46 +12,65 @@ super + Return
 	$TERMINAL
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
+
 super + {j,k,l,semicolon}
-	bspc node --focus {west,next,prev,east}.local;						\
+	bspc node --focus {west,next,prev,east}.local;                                 \
 	echo focusstack{+,-,+,-} > /tmp/dwm.fifo
+
 super + shift + {k,l}
-	if bspc query --nodes --node focused.floating; then					\
-		bspc node focused --move {0 16, 0 -16};						\
-	else											\
-		bspc node --swap {next,prev}.local;						\
+	if bspc query --nodes --node focused.floating; then                            \
+		bspc node focused --move {0 16, 0 -16};                                    \
+	else                                                                           \
+		bspc node --swap {next,prev}.local;                                        \
 	fi
+
 super + shift + {j,semicolon}
-	if bspc query --nodes --node focused.floating; then					\
-		bspc node focused --move {-16 0, 16 0};						\
-	else											\
-		bspc node --to-node {west,east}.local;						\
+	if bspc query --nodes --node focused.floating; then                            \
+		bspc node focused --move {-16 0, 16 0};                                    \
+	else                                                                           \
+		bspc node --to-node {west,east}.local;                                     \
 	fi
+
 super + alt + {j,k,l,semicolon}
 	bspc node focused --resize {left -1 0, bottom 0 1, top 0 -1, right 1 0}
+
 super + alt + ctrl + {j,k,l,semicolon}
 	bspc node focused --resize {left -64 0, bottom 0 64, top 0 -64, right 64 0}
+
 super + q
 	bspc node --close
+
+super + slash
+	case "$(bspc query --node --tree | jq '.presel.splitDir')" in \
+	'"east"')  bspc node --presel-dir south;;                     \
+	'"south"') bspc node --presel-dir west;;                      \
+	'"west"')  bspc node --presel-dir north;;                     \
+	'"north"') bspc node --presel-dir cancel;;                    \
+	*)         bspc node --presel-dir east;;                      \
+	esac
+
 super + f
 # TODO make it faster
-	if bspc query --nodes --node focused.fullscreen; then 					\
-		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState');	\
-	else 											\
-		bspc node --state fullscreen;	 						\
+	if bspc query --nodes --node focused.fullscreen; then                          \
+		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState'); \
+	else                                                                           \
+		bspc node --state fullscreen;                                              \
 	fi
+
 super + shift + space
-	if bspc query --nodes --node focused.floating; then					\
-		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState');	\
-	else 											\
-		bspc node --state floating;							\
+	if bspc query --nodes --node focused.floating; then                            \
+		bspc node --state $(bspc query --tree --node | jq -r '.client.lastState'); \
+	else                                                                           \
+		bspc node --state floating;                                                \
 	fi
+
 super + t
-	if bspc query --nodes --node focused.tiled; then					\
-		bspc node --state pseudo_tiled;							\
-	else											\
-		bspc node --state tiled;							\
+	if bspc query --nodes --node focused.tiled; then                               \
+		bspc node --state pseudo_tiled;                                            \
+	else                                                                           \
+		bspc node --state tiled;                                                   \
 	fi
+
 super + x
 	rofi -show-icons -show drun
 super + d
@@ -112,9 +131,10 @@ XF86MonBrightness{Up,Down}
 # Recording
 # Take screenshot
 Print
-	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png";	\
-	echo -n "$name" | xclip -selection clipboard -in;	\
+	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png"; \
+	echo -n "$name" | xclip -selection clipboard -in;      \
 	maim "$name"
+
 super + Print
 	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png";	\
 	echo -n "$name" | xclip -selection clipboard -in;	\

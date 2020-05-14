@@ -30,6 +30,7 @@ Plug 'xolox/vim-colorscheme-switcher'
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " Use <c-space> for trigger completion.
@@ -71,6 +72,19 @@ let g:coc_global_extensions = [
 \	'coc-clangd',
 \	'coc-vimtex'
 \]
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" makes align by \ character work
+let g:easy_align_delimiters = {
+  \ '\': {
+  \     'pattern': '\\$',
+  \ },
+  \ }
 
 packadd termdebug
 
