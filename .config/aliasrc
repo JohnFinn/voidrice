@@ -1,11 +1,9 @@
 #!/bin/sh
 alias vim="nvim"
-alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
+#alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias sudo="sudo "
 alias ref="shortcuts >/dev/null; source ~/.config/shortcutrc"
 
-# Use neovim for vim if present.
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias cp="cp -iv"

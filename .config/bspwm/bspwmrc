@@ -5,6 +5,6 @@ bspc config top_padding 24
 bspc config honor_size_hints true
 bspc config focus_follows_pointer true
 bspc monitor ^1 --reset-desktops 1 2 3 4 5 6 7 8 9 10
-bspc config window_gap 0
+bspc config window_gap 10
 bspc config presel_feedback_color '#264f78'
 bspc rule --add Surf state=tiled

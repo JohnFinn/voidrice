@@ -110,5 +110,35 @@
         "key": "f10",
         "command": "-workbench.action.debug.stepOver",
         "when": "debugState == 'stopped'"
+    },
+    {
+        "key": "alt+h",
+        "command": "C_Cpp.SwitchHeaderSource",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "alt+o",
+        "command": "-C_Cpp.SwitchHeaderSource",
+        "when": "editorTextFocus && editorLangId == 'cpp'"
+    },
+    {
+        "key": "alt+h",
+        "command": "C_Cpp.SwitchHeaderSource",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "alt+o",
+        "command": "-C_Cpp.SwitchHeaderSource",
+        "when": "editorTextFocus && editorLangId == 'c'"
+    },
+    {
+        "key": "alt+h",
+        "command": "clangd.switchheadersource",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+o",
+        "command": "-clangd.switchheadersource",
+        "when": "editorTextFocus"
     }
 ]

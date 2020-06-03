@@ -19,3 +19,8 @@ pcm.!default
         slave.pcm "usb"
     }
 }
+
+ctl.!default {
+        type hw
+        card 0
+}

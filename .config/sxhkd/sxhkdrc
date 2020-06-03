@@ -9,7 +9,7 @@
 
 # Basic binds
 super + Return
-	$TERMINAL
+	$TERMINAL -e fish
 super + shift + q
 	kill -9 `xdotool getwindowfocus getwindowpid`
 
@@ -117,16 +117,12 @@ super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + shift + Escape
 	prompt 'Leave Xorg?' 'killall Xorg'
-super + x
-	albert toggle
 XF86Launch1
 	xset dpms force off
 XF86TouchpadToggle
 	(synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null || synclient TouchpadOff=1
 XF86Touchpad{Off,On}
 	synclient TouchpadOff={1,0}
-XF86MonBrightness{Up,Down}
-	light -{A,U} 15
 
 # Recording
 # Take screenshot
@@ -176,11 +172,13 @@ super + shift + m
 
 # Audiokeys
 XF86AudioMute
-	amixer sset Master toggle
+	pactl set-sink-mute 0 toggle
 XF86Audio{Raise,Lower}Volume
 	amixer sset Master 5%{+,-}
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle
 XF86MonBrightness{Up,Down}
-	light -{A,U} 1
+	light -{A,U} 15
 XF86Audio{Next,Prev}
 	mpc {next,prev}
 XF86Audio{Pause,Play,Stop}
