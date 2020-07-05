@@ -3,17 +3,22 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-setbg &			# set the background with the `setbg` script
-xcompmgr &		# xcompmgr for transparency
-dunst &			# dunst for notifications
-sxhkd -t 1 &		# Bind keys with sxhkd
-xset r rate 300 50 &	# Speed xrate up
-unclutter &		# Remove mouse when idle
-picom &
+setbg              & # set the background with the `setbg` script
+xcompmgr           & # xcompmgr for transparency
+dunst              & # dunst for notifications
+sxhkd -t 1         & # Bind keys with sxhkd
+xset r rate 300 50 & # Speed xrate up
+unclutter          & # Remove mouse when idle
+picom              &
 espanso start
-blueman-applet &
-nm-applet &
-pasystray &
+mpd                &
+blueman-applet     &
+nm-applet          &
+pasystray          &
+play-with-mpv      &
+syncthing          &
+udiskie --tray     &
+
 
 # Set Caps to Mod/Escape
 # setxkbmap -option caps:super && killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
@@ -26,11 +31,11 @@ setxkbmap -layout us,ru -option "grp:alt_shift_toggle,grp_led:scroll"
 # tap to click
 # and natural scrolling
 # disable touchpad while typing
-synclient TapButton1=1		\
-	  TapButton2=3		\
-	  VertScrollDelta=-50	\
-	  PalmDetect=1		\
-	  PalmMinWidth=255	\
+synclient TapButton1=1    \
+	  TapButton2=3        \
+	  VertScrollDelta=-50 \
+	  PalmDetect=1        \
+	  PalmMinWidth=255    \
 	  PalmMinZ=15
 
 notify-send "Welcome to LARBS on Void with dwm" "Press super+F1 for the help menu." # LARBSWELCOME

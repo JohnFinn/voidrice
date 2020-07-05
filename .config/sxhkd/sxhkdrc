@@ -10,8 +10,12 @@
 # Basic binds
 super + Return
 	$TERMINAL -e fish
+
 super + shift + q
-	kill -9 `xdotool getwindowfocus getwindowpid`
+	xdo kill
+
+super + q
+	xdo close
 
 super + {j,k,l,semicolon}
 	bspc node --focus {west,next,prev,east}.local;                                 \
@@ -36,9 +40,6 @@ super + alt + {j,k,l,semicolon}
 
 super + alt + ctrl + {j,k,l,semicolon}
 	bspc node focused --resize {left -64 0, bottom 0 64, top 0 -64, right 64 0}
-
-super + q
-	bspc node --close
 
 super + slash
 	case "$(bspc query --node --tree | jq '.presel.splitDir')" in \
@@ -132,8 +133,8 @@ Print
 	maim "$name"
 
 super + Print
-	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png";	\
-	echo -n "$name" | xclip -selection clipboard -in;	\
+	name="/tmp/screenshot-$(date '+%Y-%m-%d-%H%M%S').png"; \
+	echo -n "$name" | xclip -selection clipboard -in;      \
 	maim --select "$name"
 # Pick screenshot type
 shift + Print
