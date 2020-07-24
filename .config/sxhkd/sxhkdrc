@@ -175,11 +175,11 @@ super + shift + m
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 XF86Audio{Raise,Lower}Volume
-	amixer sset Master 5%{+,-}
+	pactl set-sink-volume 0 {+,-}15%
 XF86AudioMicMute
 	pactl set-source-mute 1 toggle
 XF86MonBrightness{Up,Down}
-	light -{A,U} 15
+	xbacklight -{inc,dec} 15
 XF86Audio{Next,Prev}
 	mpc {next,prev}
 XF86Audio{Pause,Play,Stop}
