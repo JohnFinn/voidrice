@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/.local/bin/"
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="termite"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="lf"

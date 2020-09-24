@@ -13,7 +13,7 @@ export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="termite"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="lf"

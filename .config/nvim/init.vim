@@ -8,6 +8,7 @@ let mapleader =","
 "endif
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'lyokha/vim-xkbswitch'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
@@ -32,6 +33,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
 call plug#end()
+
+"if $DISPLAY == ""
+"else
+	"let g:XkbSwitchEnabled = 1
+	"let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
+	"let g:XkbSwitchIMappings = ['ru']
+"endif
+let g:XkbSwitchEnabled = 1
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -72,6 +81,8 @@ let g:coc_global_extensions = [
 \	'coc-clangd',
 \	'coc-vimtex'
 \]
+
+let g:tex_flavor = 'latex'
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)

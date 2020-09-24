@@ -125,41 +125,6 @@ label-empty = %name%
 label-empty-foreground = ${colors.lightgray}
 label-empty-padding = 1
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = ${colors.white}
-label-mode-background = ${colors.darkyellow}
-
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${colors:black}
-;label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <label-time>
@@ -172,23 +137,6 @@ label-song-maxlen = 70
 label-song-ellipsis = true
 
 format-paused-foreground = ${colors.gray}
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = ﯧ
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.gray}
 
 [module/date]
 type = internal/date

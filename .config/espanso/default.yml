@@ -11,6 +11,15 @@ matches:
   - trigger: ":espanso"
     replace: "Hi there!"
 
+  - trigger: ":lambda"
+    replace: "λ"
+
+  - trigger: ":alpha"
+    replace: "α"
+
+  - trigger: ":->"
+    replace: "→"
+
   - trigger: ":ss"
     replace: "ß"
 
