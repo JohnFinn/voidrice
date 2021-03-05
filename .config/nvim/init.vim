@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'junegunn/vim-easy-align'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 "if $DISPLAY == ""
@@ -62,11 +63,12 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)
 
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
+if !exists('g:vscode')
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+endif
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
@@ -122,6 +124,9 @@ noremap k j
 noremap j h
 noremap h ;
 
+map <M-k> <C-E>
+map <M-l> <C-Y>
+
 map <leader>z :Termdebug<CR>
 
 " Some basics:
@@ -156,12 +161,6 @@ map <leader>z :Termdebug<CR>
 	nm <leader>i :call ToggleIPA()<CR>
 	imap <leader>i <esc>:call ToggleIPA()<CR>a
 	nm <leader>q :call ToggleProse()<CR>
-
-" Shortcutting split navigation, saving a keypress:
-	map <C-j> <C-w>H
-	map <C-k> <C-w>J
-	map <C-l> <C-w>K
-	map <C-;> <C-w>L
 
 " Replace ex mode with gq
 	map Q gq
@@ -218,7 +217,8 @@ map <leader>z :Termdebug<CR>
 
 set background=dark
 let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme sonokai
 
 highlight LineNr ctermfg=DarkGrey
 highlight Visual cterm=NONE ctermbg=DarkGrey
