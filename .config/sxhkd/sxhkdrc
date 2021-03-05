@@ -22,7 +22,7 @@ super + {j,k,l,semicolon}
 	echo focusstack{+,-,+,-} > /tmp/dwm.fifo
 
 super + shift + {j,semicolon,k,l}
-	bspc query --nodes --node focused.floating || bspc node --swap {west,east,next,prev}
+	bspc query --nodes --node focused.floating || bspc node --swap {west,east,south,north}
 
 super + m : shift + {j,semicolon,k,l}
 	bspc node focused --move {-1 0, 1 0, 0 1, 0 -1};
