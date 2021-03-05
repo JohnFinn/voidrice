@@ -21,16 +21,14 @@ super + {j,k,l,semicolon}
 	bspc node --focus {west,next,prev,east}.local;                                 \
 	echo focusstack{+,-,+,-} > /tmp/dwm.fifo
 
-super + m : {j,semicolon,k,l}
-	if bspc query --nodes --node focused.floating; then      \
-		bspc node focused --move {-16 0, 16 0, 0 16, 0 -16}; \
-	else                                                     \
-		bspc node --to-node {west,east,next,prev}.local;     \
-	fi
+super + shift + {j,semicolon,k,l}
+	bspc query --nodes --node focused.floating || bspc node --swap {west,east,next,prev}
 
 super + m : shift + {j,semicolon,k,l}
 	bspc node focused --move {-1 0, 1 0, 0 1, 0 -1};
 
+super + m : {j,semicolon,k,l}
+	bspc node focused --move {-16 0, 16 0, 0 16, 0 -16};
 
 super + r : {j,k,l,semicolon}
 	bspc node focused --resize {left -16 0, bottom 0 16, top 0 -16, right 16 0}
